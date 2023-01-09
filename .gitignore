@@ -1,0 +1,14 @@
+xcuserdata
+report.xml
+.version
+*.back
+/archive
+.vscode
+*.zip
+.DS_Store
+.build
+.swiftpm
+/bin
+.env
+/CodeSigning.xcconfig
+*.xcarchive
