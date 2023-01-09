@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		12CD2E23296BFEDD007F96B1 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CD2E22296BFEDD007F96B1 /* main.swift */; };
+		12CD2E2B296BFF5A007F96B1 /* PerfectHTTPServer in Frameworks */ = {isa = PBXBuildFile; productRef = 12CD2E2A296BFF5A007F96B1 /* PerfectHTTPServer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12CD2E2B296BFF5A007F96B1 /* PerfectHTTPServer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +80,9 @@
 			dependencies = (
 			);
 			name = idevicedebuglauncher;
+			packageProductDependencies = (
+				12CD2E2A296BFF5A007F96B1 /* PerfectHTTPServer */,
+			);
 			productName = idevicedebuglauncher;
 			productReference = 12CD2E1F296BFEDD007F96B1 /* idevicedebuglauncher */;
 			productType = "com.apple.product-type.tool";
@@ -106,6 +111,9 @@
 				Base,
 			);
 			mainGroup = 12CD2E16296BFEDD007F96B1;
+			packageReferences = (
+				12CD2E29296BFF5A007F96B1 /* XCRemoteSwiftPackageReference "Perfect-HTTPServer" */,
+			);
 			productRefGroup = 12CD2E20296BFEDD007F96B1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -284,6 +292,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		12CD2E29296BFF5A007F96B1 /* XCRemoteSwiftPackageReference "Perfect-HTTPServer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/PerfectlySoft/Perfect-HTTPServer.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		12CD2E2A296BFF5A007F96B1 /* PerfectHTTPServer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12CD2E29296BFF5A007F96B1 /* XCRemoteSwiftPackageReference "Perfect-HTTPServer" */;
+			productName = PerfectHTTPServer;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 12CD2E17296BFEDD007F96B1 /* Project object */;
 }
