@@ -1,0 +1,3 @@
+[submodule "Dependencies/libimobiledevice"]
+	path = Dependencies/libimobiledevice
+	url = https://github.com/libimobiledevice/libimobiledevice
