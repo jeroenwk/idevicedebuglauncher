@@ -61,7 +61,6 @@
 		12CFEC64296D795400F7365D /* lib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lib.swift; sourceTree = "<group>"; };
 		12CFEC66296D7AA300F7365D /* types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = types.swift; sourceTree = "<group>"; };
 		12CFEC68296D7AFD00F7365D /* server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = server.swift; sourceTree = "<group>"; };
-		12CFEC6B296D825F00F7365D /* libimobiledevice.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = libimobiledevice.rb; path = lib/libimobiledevice.rb; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +109,6 @@
 		12CD2E16296BFEDD007F96B1 = {
 			isa = PBXGroup;
 			children = (
-				12CFEC6B296D825F00F7365D /* libimobiledevice.rb */,
 				12659E30296D5940006B6F14 /* install.sh */,
 				12CBC348296D523500EF3611 /* README.md */,
 				1219238A296CA787006F5C19 /* Info.plist */,
