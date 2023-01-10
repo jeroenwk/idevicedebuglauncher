@@ -3,3 +3,4 @@
 //
 
 #import "include/libimobiledevice.h"
+#import "include/idevicedebuglauncher.h"

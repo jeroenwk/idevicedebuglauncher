@@ -1,7 +1,7 @@
 import PerfectHTTP
 import PerfectHTTPServer
 
-func startServer(routes: Routes) {
+func startServer() {
     let server = HTTPServer()
     server.addRoutes(routes)
     server.serverPort = UInt16(serverPort)

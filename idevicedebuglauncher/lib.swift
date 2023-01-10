@@ -4,6 +4,19 @@ import PerfectLib
 class LibIMobileDevice {
     static let shared = LibIMobileDevice()
     
+    func connectDebugger(udid: String, bundleId: String) -> Int {
+        let args = ["", "-n", "--detach", "-u", udid , "run", bundleId]
+
+        // Create [UnsafeMutablePointer<Int8>]:
+        var cargs = args.map { strdup($0) }
+        // Call C function:
+        let result = test_func(Int32(args.count), &cargs)
+        // Free the duplicated strings:
+        
+        for ptr in cargs { free(ptr) }
+        return Int(result)
+    }
+    
     func getDeviceList() -> [DeviceInfo] {
         var i:Int32 = 0
         var dev_list: UnsafeMutablePointer<idevice_info_t?>? = UnsafeMutablePointer<idevice_info_t?>.allocate(capacity: 0)
