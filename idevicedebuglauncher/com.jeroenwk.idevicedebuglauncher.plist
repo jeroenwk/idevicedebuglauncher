@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.jeroenwk.idevicedebuglauncher</string>
+	<key>KeepAlive</key>
+	<false/>
+	<key>RunAtLoad</key>
+	<true/>
+    <key>StandardOutPath</key>
+    <string>/usr/local/var/log/idevicedebuglauncher.log</string>
+    <key>StandardErrorPath</key>
+    <string>/usr/local/var/log/idevicedebuglauncher.log</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/usr/local/bin/idevicedebuglauncher</string>
+	</array>
+	<key>Sockets</key>
+	<dict>
+		<key>Listeners</key>
+		<array>
+			<dict>
+				<key>SockServiceName</key>
+				<string>8181</string>
+			</dict>
+		</array>
+	</dict>
+	<key>UserName</key>
+	<string>root</string>
+</dict>
+</plist>

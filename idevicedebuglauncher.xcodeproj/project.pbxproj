@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12192366296CA104006F5C19 /* libcrypto.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 12192346296C543F006F5C19 /* libcrypto.3.dylib */; };
+		12192368296CA104006F5C19 /* libssl.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 12192343296C5416006F5C19 /* libssl.3.dylib */; };
+		1219236A296CA104006F5C19 /* libplist-2.0.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 12192340296C53E0006F5C19 /* libplist-2.0.3.dylib */; };
+		1219236C296CA104006F5C19 /* libusbmuxd-2.0.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1219233D296C5378006F5C19 /* libusbmuxd-2.0.6.dylib */; };
+		12192370296CA104006F5C19 /* libimobiledevice-1.0.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 12192336296C52CD006F5C19 /* libimobiledevice-1.0.6.dylib */; };
+		12659E31296D67C1006B6F14 /* idevicedebuglauncher in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12CD2E1F296BFEDD007F96B1 /* idevicedebuglauncher */; };
+		12CBC34C296D583500EF3611 /* com.jeroenwk.idevicedebuglauncher.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1219234C296C9A92006F5C19 /* com.jeroenwk.idevicedebuglauncher.plist */; };
 		12CD2E23296BFEDD007F96B1 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CD2E22296BFEDD007F96B1 /* main.swift */; };
 		12CD2E2B296BFF5A007F96B1 /* PerfectHTTPServer in Frameworks */ = {isa = PBXBuildFile; productRef = 12CD2E2A296BFF5A007F96B1 /* PerfectHTTPServer */; };
 /* End PBXBuildFile section */
@@ -14,16 +21,36 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		12CD2E1D296BFEDD007F96B1 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
+			buildActionMask = 12;
+			dstPath = "$(SRCROOT)/build";
 			dstSubfolderSpec = 0;
 			files = (
+				12659E31296D67C1006B6F14 /* idevicedebuglauncher in CopyFiles */,
+				12CBC34C296D583500EF3611 /* com.jeroenwk.idevicedebuglauncher.plist in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1219232F296C5196006F5C19 /* libimobiledevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libimobiledevice.h; sourceTree = "<group>"; };
+		12192330296C5196006F5C19 /* plist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = plist.h; sourceTree = "<group>"; };
+		12192332296C524A006F5C19 /* libimobiledevice-1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libimobiledevice-1.0.dylib"; path = "lib/libimobiledevice-1.0.dylib"; sourceTree = "<group>"; };
+		12192336296C52CD006F5C19 /* libimobiledevice-1.0.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libimobiledevice-1.0.6.dylib"; path = "lib/libimobiledevice-1.0.6.dylib"; sourceTree = "<group>"; };
+		1219233A296C5332006F5C19 /* libimobiledevice-glue-1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libimobiledevice-glue-1.0.0.dylib"; path = "lib/libimobiledevice-glue-1.0.0.dylib"; sourceTree = "<group>"; };
+		1219233D296C5378006F5C19 /* libusbmuxd-2.0.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libusbmuxd-2.0.6.dylib"; path = "lib/libusbmuxd-2.0.6.dylib"; sourceTree = "<group>"; };
+		12192340296C53E0006F5C19 /* libplist-2.0.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libplist-2.0.3.dylib"; path = "lib/libplist-2.0.3.dylib"; sourceTree = "<group>"; };
+		12192343296C5416006F5C19 /* libssl.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libssl.3.dylib; path = lib/libssl.3.dylib; sourceTree = "<group>"; };
+		12192346296C543F006F5C19 /* libcrypto.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.3.dylib; path = lib/libcrypto.3.dylib; sourceTree = "<group>"; };
+		12192349296C54FB006F5C19 /* idevicedebuglauncher-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "idevicedebuglauncher-Bridging-Header.h"; sourceTree = "<group>"; };
+		1219234C296C9A92006F5C19 /* com.jeroenwk.idevicedebuglauncher.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = com.jeroenwk.idevicedebuglauncher.plist; sourceTree = "<group>"; };
+		1219234D296C9E60006F5C19 /* libimobiledevice-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libimobiledevice-1.0.a"; path = "lib/libimobiledevice-1.0.a"; sourceTree = "<group>"; };
+		1219235D296C9F97006F5C19 /* libplist-2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libplist-2.0.a"; path = "lib/libplist-2.0.a"; sourceTree = "<group>"; };
+		1219235F296CA002006F5C19 /* libusbmuxd-2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libusbmuxd-2.0.a"; path = "lib/libusbmuxd-2.0.a"; sourceTree = "<group>"; };
+		1219238A296CA787006F5C19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1219238B296CA84A006F5C19 /* idevicedebuglauncher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = idevicedebuglauncher.entitlements; sourceTree = "<group>"; };
+		12659E30296D5940006B6F14 /* install.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = install.sh; sourceTree = "<group>"; };
+		12CBC348296D523500EF3611 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		12CD2E1F296BFEDD007F96B1 /* idevicedebuglauncher */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = idevicedebuglauncher; sourceTree = BUILT_PRODUCTS_DIR; };
 		12CD2E22296BFEDD007F96B1 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -33,18 +60,55 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12192370296CA104006F5C19 /* libimobiledevice-1.0.6.dylib in Frameworks */,
+				12192368296CA104006F5C19 /* libssl.3.dylib in Frameworks */,
+				12192366296CA104006F5C19 /* libcrypto.3.dylib in Frameworks */,
 				12CD2E2B296BFF5A007F96B1 /* PerfectHTTPServer in Frameworks */,
+				1219236A296CA104006F5C19 /* libplist-2.0.3.dylib in Frameworks */,
+				1219236C296CA104006F5C19 /* libusbmuxd-2.0.6.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1219232E296C5196006F5C19 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				1219232F296C5196006F5C19 /* libimobiledevice.h */,
+				12192330296C5196006F5C19 /* plist.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		12192331296C524A006F5C19 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1219235F296CA002006F5C19 /* libusbmuxd-2.0.a */,
+				1219235D296C9F97006F5C19 /* libplist-2.0.a */,
+				1219234D296C9E60006F5C19 /* libimobiledevice-1.0.a */,
+				12192346296C543F006F5C19 /* libcrypto.3.dylib */,
+				12192343296C5416006F5C19 /* libssl.3.dylib */,
+				12192340296C53E0006F5C19 /* libplist-2.0.3.dylib */,
+				1219233D296C5378006F5C19 /* libusbmuxd-2.0.6.dylib */,
+				1219233A296C5332006F5C19 /* libimobiledevice-glue-1.0.0.dylib */,
+				12192336296C52CD006F5C19 /* libimobiledevice-1.0.6.dylib */,
+				12192332296C524A006F5C19 /* libimobiledevice-1.0.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		12CD2E16296BFEDD007F96B1 = {
 			isa = PBXGroup;
 			children = (
+				12659E30296D5940006B6F14 /* install.sh */,
+				12CBC348296D523500EF3611 /* README.md */,
+				1219238A296CA787006F5C19 /* Info.plist */,
+				1219232E296C5196006F5C19 /* include */,
 				12CD2E21296BFEDD007F96B1 /* idevicedebuglauncher */,
 				12CD2E20296BFEDD007F96B1 /* Products */,
+				12192331296C524A006F5C19 /* Frameworks */,
+				12192349296C54FB006F5C19 /* idevicedebuglauncher-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,6 +123,8 @@
 		12CD2E21296BFEDD007F96B1 /* idevicedebuglauncher */ = {
 			isa = PBXGroup;
 			children = (
+				1219238B296CA84A006F5C19 /* idevicedebuglauncher.entitlements */,
+				1219234C296C9A92006F5C19 /* com.jeroenwk.idevicedebuglauncher.plist */,
 				12CD2E22296BFEDD007F96B1 /* main.swift */,
 			);
 			path = idevicedebuglauncher;
@@ -99,6 +165,7 @@
 				TargetAttributes = {
 					12CD2E1E296BFEDD007F96B1 = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 					};
 				};
 			};
@@ -251,10 +318,24 @@
 		12CD2E27296BFEDD007F96B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = idevicedebuglauncher/idevicedebuglauncher.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7K8DK3VS42;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeroenwk.idevicedebuglauncher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "idevicedebuglauncher-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -262,10 +343,23 @@
 		12CD2E28296BFEDD007F96B1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = idevicedebuglauncher/idevicedebuglauncher.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7K8DK3VS42;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeroenwk.idevicedebuglauncher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "idevicedebuglauncher-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
