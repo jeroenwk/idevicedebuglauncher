@@ -1,0 +1,6 @@
+[submodule "externals/libimobiledevice-glue"]
+	path = externals/libimobiledevice-glue
+	url = https://github.com/libimobiledevice/libimobiledevice-glue.git
+[submodule "externals/libimobiledevice"]
+	path = externals/libimobiledevice
+	url = https://github.com/libimobiledevice/libimobiledevice.git
