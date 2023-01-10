@@ -202,7 +202,7 @@ int start_server(int argc, char *argv[])
     idevice_error_t ret = IDEVICE_E_UNKNOWN_ERROR;
     instproxy_client_t instproxy_client = NULL;
     debugserver_client_t debugserver_client = NULL;
-    int i;
+    int i = 0;
     int cmd = CMD_NONE;
     const char* udid = NULL;
     int use_network = 0;

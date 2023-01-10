@@ -10,7 +10,7 @@ class LibIMobileDevice {
         // Create [UnsafeMutablePointer<Int8>]:
         var cargs = args.map { strdup($0) }
         // Call C function:
-        let result = test_func(Int32(args.count), &cargs)
+        let result = start_server(Int32(args.count), &cargs)
         // Free the duplicated strings:
         
         for ptr in cargs { free(ptr) }
