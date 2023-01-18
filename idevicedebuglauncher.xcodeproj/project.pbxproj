@@ -18,13 +18,13 @@
 		12659E31296D67C1006B6F14 /* idevicedebuglauncher in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12CD2E1F296BFEDD007F96B1 /* idevicedebuglauncher */; };
 		12CBC34C296D583500EF3611 /* com.jeroenwk.idevicedebuglauncher.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1219234C296C9A92006F5C19 /* com.jeroenwk.idevicedebuglauncher.plist */; };
 		12CD2E23296BFEDD007F96B1 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CD2E22296BFEDD007F96B1 /* main.swift */; };
-		12CD2E2B296BFF5A007F96B1 /* PerfectHTTPServer in Frameworks */ = {isa = PBXBuildFile; productRef = 12CD2E2A296BFF5A007F96B1 /* PerfectHTTPServer */; };
 		12CFEC63296D784300F7365D /* routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CFEC62296D784300F7365D /* routes.swift */; };
 		12CFEC65296D795400F7365D /* lib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CFEC64296D795400F7365D /* lib.swift */; };
 		12CFEC67296D7AA300F7365D /* types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CFEC66296D7AA300F7365D /* types.swift */; };
 		12CFEC69296D7AFD00F7365D /* server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CFEC68296D7AFD00F7365D /* server.swift */; };
 		12CFEC6D296D974D00F7365D /* idevicedebug.c in Sources */ = {isa = PBXBuildFile; fileRef = 12CFEC6C296D974D00F7365D /* idevicedebug.c */; };
 		12F8D5142977F0C9004C2412 /* chelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F8D5132977F0C9004C2412 /* chelpers.swift */; };
+		12F8D51A2977FA84004C2412 /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = 12F8D5192977FA84004C2412 /* Swifter */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -87,7 +87,7 @@
 				12192370296CA104006F5C19 /* libimobiledevice-1.0.6.dylib in Frameworks */,
 				12192368296CA104006F5C19 /* libssl.3.dylib in Frameworks */,
 				12192366296CA104006F5C19 /* libcrypto.3.dylib in Frameworks */,
-				12CD2E2B296BFF5A007F96B1 /* PerfectHTTPServer in Frameworks */,
+				12F8D51A2977FA84004C2412 /* Swifter in Frameworks */,
 				1219236A296CA104006F5C19 /* libplist-2.0.3.dylib in Frameworks */,
 				1219236C296CA104006F5C19 /* libusbmuxd-2.0.6.dylib in Frameworks */,
 			);
@@ -186,7 +186,7 @@
 			);
 			name = idevicedebuglauncher;
 			packageProductDependencies = (
-				12CD2E2A296BFF5A007F96B1 /* PerfectHTTPServer */,
+				12F8D5192977FA84004C2412 /* Swifter */,
 			);
 			productName = idevicedebuglauncher;
 			productReference = 12CD2E1F296BFEDD007F96B1 /* idevicedebuglauncher */;
@@ -218,7 +218,7 @@
 			);
 			mainGroup = 12CD2E16296BFEDD007F96B1;
 			packageReferences = (
-				12CD2E29296BFF5A007F96B1 /* XCRemoteSwiftPackageReference "Perfect-HTTPServer" */,
+				12F8D5182977FA84004C2412 /* XCRemoteSwiftPackageReference "swifter" */,
 			);
 			productRefGroup = 12CD2E20296BFEDD007F96B1 /* Products */;
 			projectDirPath = "";
@@ -436,21 +436,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		12CD2E29296BFF5A007F96B1 /* XCRemoteSwiftPackageReference "Perfect-HTTPServer" */ = {
+		12F8D5182977FA84004C2412 /* XCRemoteSwiftPackageReference "swifter" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/PerfectlySoft/Perfect-HTTPServer.git";
+			repositoryURL = "https://github.com/httpswift/swifter";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		12CD2E2A296BFF5A007F96B1 /* PerfectHTTPServer */ = {
+		12F8D5192977FA84004C2412 /* Swifter */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 12CD2E29296BFF5A007F96B1 /* XCRemoteSwiftPackageReference "Perfect-HTTPServer" */;
-			productName = PerfectHTTPServer;
+			package = 12F8D5182977FA84004C2412 /* XCRemoteSwiftPackageReference "swifter" */;
+			productName = Swifter;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

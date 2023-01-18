@@ -15,6 +15,7 @@
 	<key>ProgramArguments</key>
 	<array>
 		<string>/usr/local/bin/idevicedebuglauncher</string>
+        <string>8181</string>
 	</array>
 	<key>Sockets</key>
 	<dict>

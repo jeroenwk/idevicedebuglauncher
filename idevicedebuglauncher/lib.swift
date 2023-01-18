@@ -1,12 +1,11 @@
 import Foundation
-import PerfectLib
 
 class LibIMobileDevice {
     static let shared = LibIMobileDevice()
     
     func udidFromIpAddress(ipAddress : String) -> String? {
         guard let mac = ARP.walkMACAddress(of: ipAddress) else {
-            Log.error(message: "Unable to retrieve MAC from " + ipAddress)
+            logger.error("Unable to retrieve MAC from \(ipAddress)")
             return nil
         }
 
@@ -40,7 +39,7 @@ class LibIMobileDevice {
         let result:idevice_error_t = idevice_get_device_list_extended(&dev_list, &i)
         
         guard result.rawValue == 0 else {
-            Log.error(message: "Unable to retrieve device list!")
+            logger.error("Unable to retrieve device list!")
             return []
         }
 
@@ -61,7 +60,7 @@ class LibIMobileDevice {
                 
             }
             devices.append(deviceInfo)
-            Log.info(message: deviceInfo.deviceId + " (" + deviceInfo.deviceType.description + ")")
+            logger.info("\(deviceInfo.deviceId) (\(deviceInfo.deviceType.description)")
             
         }
         

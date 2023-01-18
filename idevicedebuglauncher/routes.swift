@@ -1,71 +1,63 @@
-import PerfectLib
-import PerfectHTTP
 import Foundation
-
-let routes = Routes([
-    Route(method: .get, uri: "/idevice_id", handler: listDevices),
-    Route(method: .get, uri: "/idevicedebug", handler: connectDebugger)
-])
+import Swifter
 
 struct ConnectDebuggerResponse: Codable {
     var error: Int
 }
 
-func connectDebugger(request: HTTPRequest, response: HTTPResponse) {
-    response.setHeader(.contentType, value: "application/json")
-    
-    var r = ConnectDebuggerResponse(error: -1)
-    let queryParams = request.queryParams
-    let ipAddress = request.remoteAddress.host
-    
-    let udid = queryParams.first(where: {
-        $0.0 == "udid"
-    })?.1 ?? lib.udidFromIpAddress(ipAddress: ipAddress)
-
-    guard let udid else {
-        Log.error(message: "No udid found!")
-        _ = try? response.setBody(json: r)
-        response.completed()
-        return
-    }
-
-    guard let bundleId = queryParams.first(where: { $0.0 == "bundleId" })?.1 else {
-        Log.error(message: "No bundleId given!")
-        _ = try? response.setBody(json: r)
-        response.completed()
-        return
-    }
-    
-    Log.info(message: "Starting debugger on " + udid + " " + bundleId + "...")
-    let error = lib.connectDebugger(udid: udid, bundleId: bundleId)
-    if error == 0 {
-        Log.info(message: "Debugger has been launched in background")
-    }
-    r.error = error
-    
-    _ = try? response.setBody(json: r)
-    response.completed()
+func badRequest(_ err_msg: String) -> HttpResponse {
+    logger.error("\(err_msg)")
+    return .badRequest(.text(err_msg))
 }
 
-func listDevices(request: HTTPRequest, response: HTTPResponse) {
-    response.setHeader(.contentType, value: "application/json")
-    
-    let devices = lib.getDeviceList()
-    guard let json = try? JSONEncoder().encode(devices) else {
-        Log.error(message: "Cannot convert device list to json!")
-        return
+func json(_ data: Codable) -> Any? {
+    return try? JSONSerialization.jsonObject(with: JSONEncoder().encode(data))
+}
+
+func listDevices() -> ((HttpRequest) -> HttpResponse) {
+    return { request in
+        let devices = lib.getDeviceList()
+        guard let json = json(devices) else {
+            return badRequest("Cannot convert device list to json!")
+        }
+        return .ok(.json(json))
     }
+}
+
+func connectDebugger() -> ((HttpRequest) -> HttpResponse) {
+    return { request in
+        var r = ConnectDebuggerResponse(error: -1)
+        let queryParams = request.queryParams
         
-    _ = try? response.setBody(json: String(data: json, encoding: .utf8)!)
-    response.completed()
+        guard let ipAddress = request.address else {
+            return badRequest("Can't get ip address from caller")
+        }
+        
+        let udid = queryParams.first(where: {
+            $0.0 == "udid"
+        })?.1 ?? lib.udidFromIpAddress(ipAddress: ipAddress)
+        
+        guard let udid else {
+            return badRequest("No udid found!")
+        }
+        
+        guard let bundleId = queryParams.first(where: { $0.0 == "bundleId" })?.1 else {
+            return badRequest("No bundleId given!")
+        }
+        
+        logger.info("Starting debugger on \(udid) \(bundleId) ...")
+        let error = lib.connectDebugger(udid: udid, bundleId: bundleId)
+        if error == 0 {
+            logger.info("Debugger has been launched in background")
+        }
+        r.error = error
+        
+        guard let json = json(r) else {
+            return badRequest("Invalid response from debugger!")
+        }
+        
+        return .ok(.json(json))
+    }
 }
 
-func postAPI(request: HTTPRequest, response: HTTPResponse) {
-    response.setHeader(.contentType, value: "application/json")
-    let body = request.postBodyString
-    let json = try? body?.jsonDecode() as? [String:Any]
-    let name = json?["input"] as? String ?? "Undefined"
-    
-    _ = try? response.setBody(json: ["input": name])
-    response.completed()
-}
+
