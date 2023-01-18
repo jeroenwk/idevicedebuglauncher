@@ -4,18 +4,17 @@ This can be used to activate JIT on emulators running on the Apple TV (Provenanc
 
 #### Install libimobiledevice from source
 - brew install pkg-config openssl@3 autoconf automake libtool libplist libusbmuxd
-- export PKG_CONFIG_PATH="/usr/local/opt/openssl@3/lib/pkgconfig"
+- export PKG_CONFIG_PATH="/usr/local/opt/openssl@3/lib/pkgconfig" (use brew info openssl to find out the exact path)
 - git submodule update --init --recursive
 - cd externals/libimobiledevice-glue
-- ./autogen.sh && make && make install
+- ./autogen.sh && make && sudo make install (if complaining on ltmain.sh, just run the commands again)
 - cd ../../externals/libimobiledevice
-- ./autogen.sh && make && make install
+- ./autogen.sh && make && sudo make install (if complaining on ltmain.sh, just run the commands again)
 
 #### Build
-- change ip address and port in idevicedebuglauncher/main.js
 - open idevicedebuglauncher.xcodeproj
-- build & run (you need to run it in order to install)
-- browse to http://[ipaddress]:[port]/idevice_id and check for the devices found
+- build & run (you need to run the project in order to install later)
+- browse to http://localhost:8181/idevice_id and check for the devices found (Note: the port nb is given as launch argument)
 - stop
 
 #### Install
@@ -35,8 +34,8 @@ This will install an excecutable (daemon) 'idevicedebuglauncher' in /usr/local/b
 - Stop: sudo launchctl stop com.jeroenwk.idevicedebuglauncher
 
 ### curl
-curl http://192.168.1.60:8181/idevice_id -w "\n\n\n"
-curl http://192.168.1.60:8181/idevicedebug\?bundleId=com.jeroenwk.provenance -w "\n\n\n"
+curl http://localhost:8181/idevice_id -w "\n\n\n"
+curl http://localhost:8181/idevicedebug\?bundleId=com.jeroenwk.provenance -w "\n\n\n"
 
 ### Apple TV
 #### pairing
