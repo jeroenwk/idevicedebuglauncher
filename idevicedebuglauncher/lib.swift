@@ -4,6 +4,22 @@ import PerfectLib
 class LibIMobileDevice {
     static let shared = LibIMobileDevice()
     
+    func udidFromIpAddress(ipAddress : String) -> String? {
+        guard let mac = ARP.walkMACAddress(of: ipAddress) else {
+            Log.error(message: "Unable to retrieve MAC from " + ipAddress)
+            return nil
+        }
+
+        let devices = getDeviceList()
+        for device in devices {
+            let udid = device.deviceId
+            if device_has_mac_address(udid.toUnsafePointer(), mac.toUnsafePointer()) != 0 {
+                return udid
+            }
+        }
+        return nil
+    }
+
     func connectDebugger(udid: String, bundleId: String) -> Int {
         let args = ["", "-n", "--detach", "-u", udid , "run", bundleId]
 
@@ -16,7 +32,7 @@ class LibIMobileDevice {
         for ptr in cargs { free(ptr) }
         return Int(result)
     }
-    
+
     func getDeviceList() -> [DeviceInfo] {
         var i:Int32 = 0
         var dev_list: UnsafeMutablePointer<idevice_info_t?>? = UnsafeMutablePointer<idevice_info_t?>.allocate(capacity: 0)
@@ -27,7 +43,7 @@ class LibIMobileDevice {
             Log.error(message: "Unable to retrieve device list!")
             return []
         }
-        
+
         var devices: [DeviceInfo] = []
         
         for n in 0...i-1 {

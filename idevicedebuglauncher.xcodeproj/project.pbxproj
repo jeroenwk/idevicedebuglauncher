@@ -12,6 +12,9 @@
 		1219236A296CA104006F5C19 /* libplist-2.0.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 12192340296C53E0006F5C19 /* libplist-2.0.3.dylib */; };
 		1219236C296CA104006F5C19 /* libusbmuxd-2.0.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1219233D296C5378006F5C19 /* libusbmuxd-2.0.6.dylib */; };
 		12192370296CA104006F5C19 /* libimobiledevice-1.0.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 12192336296C52CD006F5C19 /* libimobiledevice-1.0.6.dylib */; };
+		1256312C296EAE3D00301BE8 /* arp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1256312B296EAE3D00301BE8 /* arp.m */; };
+		12563130296EAF0200301BE8 /* address.m in Sources */ = {isa = PBXBuildFile; fileRef = 1256312F296EAF0200301BE8 /* address.m */; };
+		12563132296EBA5600301BE8 /* ideviceinfo.c in Sources */ = {isa = PBXBuildFile; fileRef = 12563131296EBA5600301BE8 /* ideviceinfo.c */; };
 		12659E31296D67C1006B6F14 /* idevicedebuglauncher in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12CD2E1F296BFEDD007F96B1 /* idevicedebuglauncher */; };
 		12CBC34C296D583500EF3611 /* com.jeroenwk.idevicedebuglauncher.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1219234C296C9A92006F5C19 /* com.jeroenwk.idevicedebuglauncher.plist */; };
 		12CD2E23296BFEDD007F96B1 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CD2E22296BFEDD007F96B1 /* main.swift */; };
@@ -21,6 +24,7 @@
 		12CFEC67296D7AA300F7365D /* types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CFEC66296D7AA300F7365D /* types.swift */; };
 		12CFEC69296D7AFD00F7365D /* server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CFEC68296D7AFD00F7365D /* server.swift */; };
 		12CFEC6D296D974D00F7365D /* idevicedebug.c in Sources */ = {isa = PBXBuildFile; fileRef = 12CFEC6C296D974D00F7365D /* idevicedebug.c */; };
+		12F8D5142977F0C9004C2412 /* chelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F8D5132977F0C9004C2412 /* chelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -54,6 +58,11 @@
 		1219235F296CA002006F5C19 /* libusbmuxd-2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libusbmuxd-2.0.a"; path = "lib/libusbmuxd-2.0.a"; sourceTree = "<group>"; };
 		1219238A296CA787006F5C19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1219238B296CA84A006F5C19 /* idevicedebuglauncher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = idevicedebuglauncher.entitlements; sourceTree = "<group>"; };
+		1256312B296EAE3D00301BE8 /* arp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = arp.m; sourceTree = "<group>"; };
+		1256312D296EAE9300301BE8 /* arp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = arp.h; sourceTree = "<group>"; };
+		1256312E296EAECA00301BE8 /* address.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = address.h; sourceTree = "<group>"; };
+		1256312F296EAF0200301BE8 /* address.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = address.m; sourceTree = "<group>"; };
+		12563131296EBA5600301BE8 /* ideviceinfo.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ideviceinfo.c; sourceTree = "<group>"; };
 		12659E30296D5940006B6F14 /* install.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = install.sh; sourceTree = "<group>"; };
 		12CBC348296D523500EF3611 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		12CD2E1F296BFEDD007F96B1 /* idevicedebuglauncher */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = idevicedebuglauncher; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +76,7 @@
 		12CFEC6F296D9B9000F7365D /* debugserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debugserver.h; sourceTree = "<group>"; };
 		12CFEC70296D9C7E00F7365D /* lockdown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lockdown.h; sourceTree = "<group>"; };
 		12CFEC71296DA14900F7365D /* idevicedebuglauncher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = idevicedebuglauncher.h; sourceTree = "<group>"; };
+		12F8D5132977F0C9004C2412 /* chelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +105,8 @@
 				1219232F296C5196006F5C19 /* libimobiledevice.h */,
 				12192330296C5196006F5C19 /* plist.h */,
 				12CFEC71296DA14900F7365D /* idevicedebuglauncher.h */,
+				1256312D296EAE9300301BE8 /* arp.h */,
+				1256312E296EAECA00301BE8 /* address.h */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -144,11 +156,15 @@
 				1219238B296CA84A006F5C19 /* idevicedebuglauncher.entitlements */,
 				1219234C296C9A92006F5C19 /* com.jeroenwk.idevicedebuglauncher.plist */,
 				12CD2E22296BFEDD007F96B1 /* main.swift */,
+				12F8D5132977F0C9004C2412 /* chelpers.swift */,
 				12CFEC62296D784300F7365D /* routes.swift */,
 				12CFEC64296D795400F7365D /* lib.swift */,
 				12CFEC66296D7AA300F7365D /* types.swift */,
 				12CFEC68296D7AFD00F7365D /* server.swift */,
 				12CFEC6C296D974D00F7365D /* idevicedebug.c */,
+				12563131296EBA5600301BE8 /* ideviceinfo.c */,
+				1256312B296EAE3D00301BE8 /* arp.m */,
+				1256312F296EAF0200301BE8 /* address.m */,
 			);
 			path = idevicedebuglauncher;
 			sourceTree = "<group>";
@@ -220,9 +236,13 @@
 			files = (
 				12CD2E23296BFEDD007F96B1 /* main.swift in Sources */,
 				12CFEC6D296D974D00F7365D /* idevicedebug.c in Sources */,
+				12563130296EAF0200301BE8 /* address.m in Sources */,
+				12F8D5142977F0C9004C2412 /* chelpers.swift in Sources */,
 				12CFEC69296D7AFD00F7365D /* server.swift in Sources */,
 				12CFEC63296D784300F7365D /* routes.swift in Sources */,
+				1256312C296EAE3D00301BE8 /* arp.m in Sources */,
 				12CFEC65296D795400F7365D /* lib.swift in Sources */,
+				12563132296EBA5600301BE8 /* ideviceinfo.c in Sources */,
 				12CFEC67296D7AA300F7365D /* types.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

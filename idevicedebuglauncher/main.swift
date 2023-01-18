@@ -10,3 +10,4 @@ let lib = LibIMobileDevice.shared
 
 lib.setDebugLevel(level: 1)
 startServer()
+

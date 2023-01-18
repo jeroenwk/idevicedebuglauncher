@@ -36,7 +36,7 @@ This will install an excecutable (daemon) 'idevicedebuglauncher' in /usr/local/b
 
 ### curl
 curl http://192.168.1.60:8181/idevice_id -w "\n\n\n"
-curl http://192.168.1.60:8181/idevicedebug\?udid=bbc1630faa46f5acb41938898ef7b26e912f9bf8\&bundleId=com.jeroenwk.provenance -w "\n\n\n"
+curl http://192.168.1.60:8181/idevicedebug\?bundleId=com.jeroenwk.provenance -w "\n\n\n"
 
 ### Apple TV
 #### pairing

@@ -21,12 +21,16 @@
 		<key>Listeners</key>
 		<array>
 			<dict>
-				<key>SockServiceName</key>
-				<string>8181</string>
+                <key>SockNodeName</key>
+                <string>0.0.0.0</string>
+                <key>SockServiceName</key>
+                <string>8181</string>
+                <key>Bonjour</key>
+                <array>
+                    <string>idevicedebuglauncher</string>
+                </array>
 			</dict>
 		</array>
 	</dict>
-	<key>UserName</key>
-	<string>root</string>
 </dict>
 </plist>

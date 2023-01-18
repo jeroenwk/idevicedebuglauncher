@@ -36,7 +36,7 @@
 
 
 #include "../include/installation_proxy.h"
-#include "../include//libimobiledevice.h"
+#include "../include/libimobiledevice.h"
 #include "../include/debugserver.h"
 #include "../include/plist.h"
 #include "../include/idevicedebuglauncher.h"
