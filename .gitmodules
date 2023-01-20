@@ -4,3 +4,12 @@
 [submodule "externals/libimobiledevice"]
 	path = externals/libimobiledevice
 	url = https://github.com/libimobiledevice/libimobiledevice.git
+[submodule "externals/openssl"]
+	path = externals/openssl
+	url = https://github.com/openssl/openssl.git
+[submodule "externals/libplist"]
+	path = externals/libplist
+	url = https://github.com/libimobiledevice/libplist.git
+[submodule "externals/libusbmuxd"]
+	path = externals/libusbmuxd
+	url = https://github.com/libimobiledevice/libusbmuxd.git

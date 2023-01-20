@@ -1,17 +1,60 @@
-## idevicedebuglauncher
+# idevicedebuglauncher
 idevicedebuglauncher is a simple deamon on macos that can attach a debugger to an application on an iOS/tvOS device.
 This can be used to activate JIT on emulators running on the Apple TV (Provenance, Dolphinios, ...)
 
-#### Install libimobiledevice from source
-- brew install pkg-config openssl@3 autoconf automake libtool libplist libusbmuxd
-- export PKG_CONFIG_PATH="/usr/local/opt/openssl@3/lib/pkgconfig" (use brew info openssl to find out the exact path)
-- git submodule update --init --recursive
-- cd externals/libimobiledevice-glue
-- ./autogen.sh && make && sudo make install (if complaining on ltmain.sh, just run the commands again)
-- cd ../../externals/libimobiledevice
-- ./autogen.sh && make && sudo make install (if complaining on ltmain.sh, just run the commands again)
+## Compile libraries from source
+    $ brew install pkg-config autoconf automake libtool
+    
+    $ cd externals
+    $ git submodule update --init
+    
+    $ export PREFIX=$(pwd)/tmp
+    $ export PKG_CONFIG_PATH=${PREFIX}/lib/pkgconfig
+    $ export LDFLAGS="-Wl,-rpath,@rpath"
 
-#### Build
+### openssl
+    $ cd ./openssl
+    $ KERNEL_BITS=64 ./Configure --prefix=$(pwd)/../tmp '-Wl,-rpath,$@rpath'
+    $ make
+    $ make install
+    
+### libidevicemobile
+	$ cd ../libplist
+	$ ./autogen.sh --prefix=$PREFIX
+	$ make
+	$ make install
+	
+	$ cd ../libidevicemobile-glue
+	$ ./autogen.sh --prefix=$PREFIX
+	$ make
+	$ make install
+	
+	$ cd ../libusbmuxd
+	$ ./autogen.sh --prefix=$PREFIX
+	$ make
+	$ make install
+	
+	$ cd ../libidevicemobile
+	$ ./autogen.sh --prefix=$PREFIX
+	$ make
+	$ make install
+	
+* if complaining on ltmain.sh, just run the commands again
+
+## Install universal libraries
+	$ cd ../tmp/lib
+	$ cp libcrypto.3.dylib libssl.3.dylib libplist-2.0.3.dylib libusbmuxd-2.0.6.dylib libimobiledevice-glue-1.0.0.dylib libimobiledevice-1.0.6.dylib ../../../lib/$(uname -m)
+	
+	$ cd ../../../lib
+	$ lipo arm64/libcrypto.3.dylib x86_64/libcrypto.3.dylib -output universal/libcrypto.3.dylib -create
+	$ lipo arm64/libssl.3.dylib x86_64/libssl.3.dylib -output universal/libssl.3.dylib -create
+	$ lipo arm64/libplist-2.0.3.dylib x86_64/libplist-2.0.3.dylib -output universal/libplist-2.0.3.dylib -create
+	$ lipo arm64/libusbmuxd-2.0.6.dylib x86_64/libusbmuxd-2.0.6.dylib -output universal/libusbmuxd-2.0.6.dylib -create
+	$ lipo arm64/libimobiledevice-glue-1.0.0.dylib x86_64/libimobiledevice-glue-1.0.0.dylib -output universal/libimobiledevice-glue-1.0.0.dylib -create
+	$ lipo arm64/libimobiledevice-1.0.6.dylib x86_64/libimobiledevice-1.0.6.dylib -output universal/libimobiledevice-1.0.6.dylib -create
+
+
+## Build idevicedebuglauncher
 - open idevicedebuglauncher.xcodeproj
 - build & run (you need to run the project in order to install later)
 - browse to http://localhost:8181/idevice_id and check for the devices found (Note: the port nb is given as launch argument)

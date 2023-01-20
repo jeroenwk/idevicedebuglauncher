@@ -13,3 +13,5 @@ report.xml
 .env
 /CodeSigning.xcconfig
 *.xcarchive
+/externals/tmp/*
+/ltmain.sh
