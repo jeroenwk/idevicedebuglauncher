@@ -20,11 +20,11 @@ This can be used to activate JIT on emulators running on the Apple TV (Provenanc
     
 ### libidevicemobile
 	$ cd ../libplist
-	$ ./autogen.sh --prefix=$PREFIX
+	$ ./autogen.sh --prefix=$PREFIX --without-cython
 	$ make
 	$ make install
 	
-	$ cd ../libidevicemobile-glue
+	$ cd ../libimobiledevice-glue
 	$ ./autogen.sh --prefix=$PREFIX
 	$ make
 	$ make install
@@ -34,7 +34,7 @@ This can be used to activate JIT on emulators running on the Apple TV (Provenanc
 	$ make
 	$ make install
 	
-	$ cd ../libidevicemobile
+	$ cd ../libimobiledevice
 	$ ./autogen.sh --prefix=$PREFIX
 	$ make
 	$ make install
