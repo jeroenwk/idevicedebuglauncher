@@ -7,6 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1290BF9B297C30AC002D960D /* libcrypto.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF95297C30AC002D960D /* libcrypto.3.dylib */; };
+		1290BF9C297C30AC002D960D /* libcrypto.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF95297C30AC002D960D /* libcrypto.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		1290BF9D297C30AC002D960D /* libimobiledevice-glue-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF96297C30AC002D960D /* libimobiledevice-glue-1.0.0.dylib */; };
+		1290BF9E297C30AC002D960D /* libimobiledevice-glue-1.0.0.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF96297C30AC002D960D /* libimobiledevice-glue-1.0.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		1290BF9F297C30AC002D960D /* libimobiledevice-1.0.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF97297C30AC002D960D /* libimobiledevice-1.0.6.dylib */; };
+		1290BFA0297C30AC002D960D /* libimobiledevice-1.0.6.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF97297C30AC002D960D /* libimobiledevice-1.0.6.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		1290BFA1297C30AC002D960D /* libusbmuxd-2.0.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF98297C30AC002D960D /* libusbmuxd-2.0.6.dylib */; };
+		1290BFA2297C30AC002D960D /* libusbmuxd-2.0.6.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF98297C30AC002D960D /* libusbmuxd-2.0.6.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		1290BFA3297C30AC002D960D /* libplist-2.0.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF99297C30AC002D960D /* libplist-2.0.3.dylib */; };
+		1290BFA4297C30AC002D960D /* libplist-2.0.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF99297C30AC002D960D /* libplist-2.0.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		1290BFA5297C30AC002D960D /* libssl.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF9A297C30AC002D960D /* libssl.3.dylib */; };
+		1290BFA6297C30AC002D960D /* libssl.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF9A297C30AC002D960D /* libssl.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		1290BFA8297C316C002D960D /* libcrypto.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF95297C30AC002D960D /* libcrypto.3.dylib */; };
+		1290BFA9297C316C002D960D /* libcrypto.3.dylib in Install Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF95297C30AC002D960D /* libcrypto.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		1290BFAA297C316C002D960D /* libimobiledevice-1.0.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF97297C30AC002D960D /* libimobiledevice-1.0.6.dylib */; };
+		1290BFAB297C316C002D960D /* libimobiledevice-1.0.6.dylib in Install Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF97297C30AC002D960D /* libimobiledevice-1.0.6.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		1290BFAC297C316C002D960D /* libimobiledevice-glue-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF96297C30AC002D960D /* libimobiledevice-glue-1.0.0.dylib */; };
+		1290BFAD297C316C002D960D /* libimobiledevice-glue-1.0.0.dylib in Install Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF96297C30AC002D960D /* libimobiledevice-glue-1.0.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		1290BFAE297C316C002D960D /* libplist-2.0.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF99297C30AC002D960D /* libplist-2.0.3.dylib */; };
+		1290BFAF297C316C002D960D /* libplist-2.0.3.dylib in Install Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF99297C30AC002D960D /* libplist-2.0.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		1290BFB0297C316C002D960D /* libssl.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF9A297C30AC002D960D /* libssl.3.dylib */; };
+		1290BFB1297C316C002D960D /* libssl.3.dylib in Install Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF9A297C30AC002D960D /* libssl.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		1290BFB2297C316C002D960D /* libusbmuxd-2.0.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF98297C30AC002D960D /* libusbmuxd-2.0.6.dylib */; };
+		1290BFB3297C316C002D960D /* libusbmuxd-2.0.6.dylib in Install Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF98297C30AC002D960D /* libusbmuxd-2.0.6.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		12D7B16D2979C04600593124 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D7B16C2979C04600593124 /* main.swift */; };
 		12F467AB2979B3EF00FED23C /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F467AA2979B3EF00FED23C /* Main.swift */; };
 		12F467AD2979B3EF00FED23C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F467AC2979B3EF00FED23C /* ContentView.swift */; };
@@ -23,24 +47,6 @@
 		12F467DD2979B67800FED23C /* types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F467D32979B67800FED23C /* types.swift */; };
 		12F467DE2979B67800FED23C /* lib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F467D42979B67800FED23C /* lib.swift */; };
 		12F467E52979B81900FED23C /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = 12F467E42979B81900FED23C /* Swifter */; };
-		12F467E82979B8A900FED23C /* libcrypto.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 12F467E72979B8A900FED23C /* libcrypto.3.dylib */; };
-		12F467E92979B8A900FED23C /* libcrypto.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 12F467E72979B8A900FED23C /* libcrypto.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		12F467EC2979B8B100FED23C /* libimobiledevice-1.0.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 12F467EB2979B8B100FED23C /* libimobiledevice-1.0.6.dylib */; };
-		12F467ED2979B8B100FED23C /* libimobiledevice-1.0.6.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 12F467EB2979B8B100FED23C /* libimobiledevice-1.0.6.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		12F467EF2979B8B400FED23C /* libplist-2.0.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 12F467EE2979B8B400FED23C /* libplist-2.0.3.dylib */; };
-		12F467F02979B8B400FED23C /* libplist-2.0.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 12F467EE2979B8B400FED23C /* libplist-2.0.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		12F467F22979B8B700FED23C /* libusbmuxd-2.0.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 12F467F12979B8B700FED23C /* libusbmuxd-2.0.6.dylib */; };
-		12F467F32979B8B700FED23C /* libusbmuxd-2.0.6.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 12F467F12979B8B700FED23C /* libusbmuxd-2.0.6.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		12F467F52979B8BA00FED23C /* libssl.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 12F467F42979B8BA00FED23C /* libssl.3.dylib */; };
-		12F467F62979B8BA00FED23C /* libssl.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 12F467F42979B8BA00FED23C /* libssl.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		12F467F82979B8C000FED23C /* libimobiledevice-glue-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 12F467F72979B8C000FED23C /* libimobiledevice-glue-1.0.0.dylib */; };
-		12F467F92979B8C000FED23C /* libimobiledevice-glue-1.0.0.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 12F467F72979B8C000FED23C /* libimobiledevice-glue-1.0.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		12FC232B2979DDAC0065687B /* libcrypto.3.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12F467E72979B8A900FED23C /* libcrypto.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		12FC232C2979DDAC0065687B /* libusbmuxd-2.0.6.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12F467F12979B8B700FED23C /* libusbmuxd-2.0.6.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		12FC232D2979DDAC0065687B /* libimobiledevice-1.0.6.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12F467EB2979B8B100FED23C /* libimobiledevice-1.0.6.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		12FC232E2979DDAC0065687B /* libplist-2.0.3.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12F467EE2979B8B400FED23C /* libplist-2.0.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		12FC232F2979DDAC0065687B /* libimobiledevice-glue-1.0.0.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12F467F72979B8C000FED23C /* libimobiledevice-glue-1.0.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		12FC23302979DDAC0065687B /* libssl.3.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12F467F42979B8BA00FED23C /* libssl.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +60,38 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		1290BFA7297C30AC002D960D /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1290BFA6297C30AC002D960D /* libssl.3.dylib in Embed Libraries */,
+				1290BFA2297C30AC002D960D /* libusbmuxd-2.0.6.dylib in Embed Libraries */,
+				1290BFA0297C30AC002D960D /* libimobiledevice-1.0.6.dylib in Embed Libraries */,
+				1290BF9C297C30AC002D960D /* libcrypto.3.dylib in Embed Libraries */,
+				1290BFA4297C30AC002D960D /* libplist-2.0.3.dylib in Embed Libraries */,
+				1290BF9E297C30AC002D960D /* libimobiledevice-glue-1.0.0.dylib in Embed Libraries */,
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1290BFB4297C316C002D960D /* Install Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1290BFB3297C316C002D960D /* libusbmuxd-2.0.6.dylib in Install Frameworks */,
+				1290BFB1297C316C002D960D /* libssl.3.dylib in Install Frameworks */,
+				1290BFAD297C316C002D960D /* libimobiledevice-glue-1.0.0.dylib in Install Frameworks */,
+				1290BFAB297C316C002D960D /* libimobiledevice-1.0.6.dylib in Install Frameworks */,
+				1290BFA9297C316C002D960D /* libcrypto.3.dylib in Install Frameworks */,
+				1290BFAF297C316C002D960D /* libplist-2.0.3.dylib in Install Frameworks */,
+			);
+			name = "Install Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		12F467BB2979B4B100FED23C /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -74,41 +112,15 @@
 			name = "Embed Daemon";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		12F467EA2979B8A900FED23C /* Embed Libraries */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				12F467F62979B8BA00FED23C /* libssl.3.dylib in Embed Libraries */,
-				12F467F32979B8B700FED23C /* libusbmuxd-2.0.6.dylib in Embed Libraries */,
-				12F467ED2979B8B100FED23C /* libimobiledevice-1.0.6.dylib in Embed Libraries */,
-				12F467F92979B8C000FED23C /* libimobiledevice-glue-1.0.0.dylib in Embed Libraries */,
-				12F467E92979B8A900FED23C /* libcrypto.3.dylib in Embed Libraries */,
-				12F467F02979B8B400FED23C /* libplist-2.0.3.dylib in Embed Libraries */,
-			);
-			name = "Embed Libraries";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		12FC232A2979DD7A0065687B /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 8;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				12FC232B2979DDAC0065687B /* libcrypto.3.dylib in Embed Frameworks */,
-				12FC232C2979DDAC0065687B /* libusbmuxd-2.0.6.dylib in Embed Frameworks */,
-				12FC232D2979DDAC0065687B /* libimobiledevice-1.0.6.dylib in Embed Frameworks */,
-				12FC232E2979DDAC0065687B /* libplist-2.0.3.dylib in Embed Frameworks */,
-				12FC232F2979DDAC0065687B /* libimobiledevice-glue-1.0.0.dylib in Embed Frameworks */,
-				12FC23302979DDAC0065687B /* libssl.3.dylib in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 1;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1290BF95297C30AC002D960D /* libcrypto.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.3.dylib; path = lib/universal/libcrypto.3.dylib; sourceTree = "<group>"; };
+		1290BF96297C30AC002D960D /* libimobiledevice-glue-1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libimobiledevice-glue-1.0.0.dylib"; path = "lib/universal/libimobiledevice-glue-1.0.0.dylib"; sourceTree = "<group>"; };
+		1290BF97297C30AC002D960D /* libimobiledevice-1.0.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libimobiledevice-1.0.6.dylib"; path = "lib/universal/libimobiledevice-1.0.6.dylib"; sourceTree = "<group>"; };
+		1290BF98297C30AC002D960D /* libusbmuxd-2.0.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libusbmuxd-2.0.6.dylib"; path = "lib/universal/libusbmuxd-2.0.6.dylib"; sourceTree = "<group>"; };
+		1290BF99297C30AC002D960D /* libplist-2.0.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libplist-2.0.3.dylib"; path = "lib/universal/libplist-2.0.3.dylib"; sourceTree = "<group>"; };
+		1290BF9A297C30AC002D960D /* libssl.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libssl.3.dylib; path = lib/universal/libssl.3.dylib; sourceTree = "<group>"; };
 		12D7B16C2979C04600593124 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		12F467A72979B3EF00FED23C /* idevicedebuglauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idevicedebuglauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12F467AA2979B3EF00FED23C /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
@@ -131,12 +143,6 @@
 		12F467D42979B67800FED23C /* lib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lib.swift; sourceTree = "<group>"; };
 		12F467DF2979B72300FED23C /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
 		12F467E62979B88200FED23C /* lib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = lib; sourceTree = "<group>"; };
-		12F467E72979B8A900FED23C /* libcrypto.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.3.dylib; path = lib/universal/libcrypto.3.dylib; sourceTree = "<group>"; };
-		12F467EB2979B8B100FED23C /* libimobiledevice-1.0.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libimobiledevice-1.0.6.dylib"; path = "lib/universal/libimobiledevice-1.0.6.dylib"; sourceTree = "<group>"; };
-		12F467EE2979B8B400FED23C /* libplist-2.0.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libplist-2.0.3.dylib"; path = "lib/universal/libplist-2.0.3.dylib"; sourceTree = "<group>"; };
-		12F467F12979B8B700FED23C /* libusbmuxd-2.0.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libusbmuxd-2.0.6.dylib"; path = "lib/universal/libusbmuxd-2.0.6.dylib"; sourceTree = "<group>"; };
-		12F467F42979B8BA00FED23C /* libssl.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libssl.3.dylib; path = lib/universal/libssl.3.dylib; sourceTree = "<group>"; };
-		12F467F72979B8C000FED23C /* libimobiledevice-glue-1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libimobiledevice-glue-1.0.0.dylib"; path = "lib/universal/libimobiledevice-glue-1.0.0.dylib"; sourceTree = "<group>"; };
 		12FC23312979E39A0065687B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,6 +151,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1290BFB2297C316C002D960D /* libusbmuxd-2.0.6.dylib in Frameworks */,
+				1290BFB0297C316C002D960D /* libssl.3.dylib in Frameworks */,
+				1290BFAC297C316C002D960D /* libimobiledevice-glue-1.0.0.dylib in Frameworks */,
+				1290BFAA297C316C002D960D /* libimobiledevice-1.0.6.dylib in Frameworks */,
+				1290BFA8297C316C002D960D /* libcrypto.3.dylib in Frameworks */,
+				1290BFAE297C316C002D960D /* libplist-2.0.3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,13 +164,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12F467F82979B8C000FED23C /* libimobiledevice-glue-1.0.0.dylib in Frameworks */,
-				12F467F52979B8BA00FED23C /* libssl.3.dylib in Frameworks */,
-				12F467EC2979B8B100FED23C /* libimobiledevice-1.0.6.dylib in Frameworks */,
-				12F467E82979B8A900FED23C /* libcrypto.3.dylib in Frameworks */,
+				1290BF9D297C30AC002D960D /* libimobiledevice-glue-1.0.0.dylib in Frameworks */,
+				1290BF9B297C30AC002D960D /* libcrypto.3.dylib in Frameworks */,
+				1290BF9F297C30AC002D960D /* libimobiledevice-1.0.6.dylib in Frameworks */,
+				1290BFA5297C30AC002D960D /* libssl.3.dylib in Frameworks */,
 				12F467E52979B81900FED23C /* Swifter in Frameworks */,
-				12F467EF2979B8B400FED23C /* libplist-2.0.3.dylib in Frameworks */,
-				12F467F22979B8B700FED23C /* libusbmuxd-2.0.6.dylib in Frameworks */,
+				1290BFA1297C30AC002D960D /* libusbmuxd-2.0.6.dylib in Frameworks */,
+				1290BFA3297C30AC002D960D /* libplist-2.0.3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,12 +242,12 @@
 		12F467E32979B81900FED23C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				12F467E72979B8A900FED23C /* libcrypto.3.dylib */,
-				12F467F12979B8B700FED23C /* libusbmuxd-2.0.6.dylib */,
-				12F467EB2979B8B100FED23C /* libimobiledevice-1.0.6.dylib */,
-				12F467EE2979B8B400FED23C /* libplist-2.0.3.dylib */,
-				12F467F72979B8C000FED23C /* libimobiledevice-glue-1.0.0.dylib */,
-				12F467F42979B8BA00FED23C /* libssl.3.dylib */,
+				1290BF95297C30AC002D960D /* libcrypto.3.dylib */,
+				1290BF97297C30AC002D960D /* libimobiledevice-1.0.6.dylib */,
+				1290BF96297C30AC002D960D /* libimobiledevice-glue-1.0.0.dylib */,
+				1290BF99297C30AC002D960D /* libplist-2.0.3.dylib */,
+				1290BF9A297C30AC002D960D /* libssl.3.dylib */,
+				1290BF98297C30AC002D960D /* libusbmuxd-2.0.6.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -251,7 +263,7 @@
 				12F467A42979B3EF00FED23C /* Frameworks */,
 				12F467A52979B3EF00FED23C /* Resources */,
 				12F467C72979B5A600FED23C /* Embed Daemon */,
-				12FC232A2979DD7A0065687B /* Embed Frameworks */,
+				1290BFB4297C316C002D960D /* Install Frameworks */,
 			);
 			buildRules = (
 			);
@@ -272,7 +284,7 @@
 				12F467B92979B4B100FED23C /* Sources */,
 				12F467BA2979B4B100FED23C /* Frameworks */,
 				12F467BB2979B4B100FED23C /* CopyFiles */,
-				12F467EA2979B8A900FED23C /* Embed Libraries */,
+				1290BFA7297C30AC002D960D /* Embed Libraries */,
 			);
 			buildRules = (
 			);
@@ -511,6 +523,10 @@
 					"@executable_path/",
 					"@loader_path/../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib/universal",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeroenwk.idevicedebuglauncher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -540,6 +556,10 @@
 					"@executable_path/",
 					"@loader_path/../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib/universal",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeroenwk.idevicedebuglauncher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -565,6 +585,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib/universal",
+					"$(PROJECT_DIR)/lib/arm64",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				OTHER_CODE_SIGN_FLAGS = "$(inherited) -i $(PRODUCT_BUNDLE_IDENTIFIER)";
@@ -595,6 +616,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib/universal",
+					"$(PROJECT_DIR)/lib/arm64",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				OTHER_CODE_SIGN_FLAGS = "$(inherited) -i $(PRODUCT_BUNDLE_IDENTIFIER)";
