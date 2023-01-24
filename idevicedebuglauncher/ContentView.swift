@@ -1,15 +1,27 @@
 import SwiftUI
+import ServiceManagement
 
 struct ContentView: View {
     @State private var installed = false
     @State private var running = false
+    @State private var notAllowed = false
     
-    @State private var devices = [
-        DeviceInfo(deviceId: "00008110-001E059026C1801E", deviceType: .usb),
-        DeviceInfo(deviceId: "00008110-001E059026C1801E", deviceType: .network),
-        DeviceInfo(deviceId: "bbc1630faa46f5acb41938898ef7b26e912f9bf8", deviceType: .network),
+    @State private var devices: [DeviceInfo] = []
+    
+    func getDevices() -> [DeviceInfo] {
+        let fakes_devices = [
+            DeviceInfo(deviceId: "00008110-001E059026C1801E", deviceType: .usb),
+            DeviceInfo(deviceId: "00008110-001E059026C1801E", deviceType: .network),
+            DeviceInfo(deviceId: "bbc1630faa46f5acb41938898ef7b26e912f9bf8", deviceType: .network),
 
-        ]
+            ]
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            Commands.send("listDevices")
+        }
+        
+        return fakes_devices
+    }
     
     var body: some View {
         
@@ -18,8 +30,15 @@ struct ContentView: View {
                 .padding(.trailing, 20)
             VStack(alignment: .leading) {
                 
-                Toggle(isOn: $installed) {
-                    Text("Install as system service")
+                HStack {
+                    Toggle(isOn: $installed) {
+                        Text("Install as system service")
+                    }
+                    .toggleStyle(.switch)
+                    if notAllowed {
+                        Text("Please allow idevicedebuglauncher in the Background")
+                            .foregroundColor(.red)
+                    }
                 }
                 
                 HStack {
@@ -32,9 +51,9 @@ struct ContentView: View {
                 
                 HStack {
                     Button {
-                        Commands.send("listDevices")
+                        devices = getDevices()
                     } label: {
-                        Text("List devices")
+                        Text("Refresh devices")
                             .padding(20)
                     }
                     Button {
@@ -62,10 +81,26 @@ struct ContentView: View {
         }
         .padding()
         .onChange(of: installed) { newValue in
-            if newValue {
-                Commands.register()
-            } else {
-                Commands.unregister()
+            DispatchQueue.global(qos: .userInitiated).async {
+                if newValue {
+                    let registered = Commands.register()
+                    let status = Commands.status()
+                    if !registered && (
+                        status == .requiresApproval ||
+                        status == .notFound ) {
+                        installed = false
+                        notAllowed = true
+                        logger.warning("Can't register daemon \(status.rawValue)")
+                        SMAppService.openSystemSettingsLoginItems()
+                    } else {
+                        notAllowed = false
+                        running = true
+                        devices = getDevices()
+                    }
+                } else {
+                    running = false
+                    Commands.unregister()
+                }
             }
         }
     }

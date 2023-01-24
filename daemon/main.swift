@@ -1,7 +1,7 @@
 import Foundation
 import os.log
 
-let logger = Logger(subsystem: "com.jeroenwk.idevicedebuglauncher", category: "debugging")
+let logger = Logger(subsystem: "com.jeroenwk.idevicedebuglauncher.daemon", category: "debugging")
 
 logger.info("starting idevicedebuglauncher daemon ...")
 

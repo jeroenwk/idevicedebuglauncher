@@ -3,16 +3,18 @@ import ServiceManagement
 import XPCOverlay
 
 class Commands {
-    class func register() {
+    class func register() -> Bool {
         let service = SMAppService.daemon(plistName: "com.jeroenwk.idevicedebuglauncher.plist")
 
         do {
             try service.register()
-            print("Successfully registered \(service)")
+            logger.info("Successfully registered \(service)")
+            return true
         } catch {
-            print("Unable to register \(error)")
-            exit(1)
+            logger.error("Unable to register \(error)")
         }
+        
+        return false
     }
 
     class func unregister() {
@@ -20,17 +22,16 @@ class Commands {
 
         do {
             try service.unregister()
-            print("Successfully unregistered \(service)")
+            logger.info("Successfully unregistered \(service)")
         } catch {
-            print("Unable to unregister \(error)")
-            exit(1)
+            logger.error("Unable to unregister \(error)")
         }
     }
 
-    class func status() {
+    class func status() -> SMAppService.Status {
         let service = SMAppService.daemon(plistName: "com.jeroenwk.idevicedebuglauncher.plist")
-
-        print("\(service) has status \(service.status)")
+        logger.info("\(service.description) has status \(service.status.rawValue)")
+        return service.status
     }
     
     class func send(_ message: String) {
@@ -41,21 +42,21 @@ class Commands {
 
         var error: xpc_rich_error_t? = nil
         let session = xpc_session_create_mach_service("com.xpc.idevicedebuglauncher.sendcommand", nil, .none, &error)
-        if let error = error {
-            print("Unable to create xpc_session \(error)")
-            exit(1)
+        if let error {
+            logger.error("Unable to create xpc_session \(error.description)")
+            return
         }
 
         let reply = xpc_session_send_message_with_reply_sync(session!, request, &error)
         if let error = error {
-            print("Error sending message \(error)")
-            exit(1)
+            logger.error("Error sending message \(error.description)")
+            return
         }
 
         let response = xpc_dictionary_get_string(reply!, "ResponseKey")
         let encodedResponse = String(cString: response!)
 
-        print("Received \"\(encodedResponse)\"")
+        logger.info("Received \"\(encodedResponse)\"")
 
         xpc_session_cancel(session!)
     }
