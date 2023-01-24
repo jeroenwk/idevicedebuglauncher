@@ -7,36 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1264761E297FD41A0015A50A /* libcrypto.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF95297C30AC002D960D /* libcrypto.3.dylib */; };
+		1264761F297FD41A0015A50A /* libimobiledevice-1.0.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF97297C30AC002D960D /* libimobiledevice-1.0.6.dylib */; };
+		12647620297FD41A0015A50A /* libimobiledevice-glue-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF96297C30AC002D960D /* libimobiledevice-glue-1.0.0.dylib */; };
+		12647621297FD41A0015A50A /* libplist-2.0.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF99297C30AC002D960D /* libplist-2.0.3.dylib */; };
+		12647622297FD41A0015A50A /* libssl.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF9A297C30AC002D960D /* libssl.3.dylib */; };
+		12647623297FD41A0015A50A /* libusbmuxd-2.0.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF98297C30AC002D960D /* libusbmuxd-2.0.6.dylib */; };
+		12647624297FD4370015A50A /* libcrypto.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF95297C30AC002D960D /* libcrypto.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		12647626297FD4380015A50A /* libimobiledevice-1.0.6.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF97297C30AC002D960D /* libimobiledevice-1.0.6.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		12647627297FD43A0015A50A /* libimobiledevice-glue-1.0.0.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF96297C30AC002D960D /* libimobiledevice-glue-1.0.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		12647628297FD43B0015A50A /* libplist-2.0.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF99297C30AC002D960D /* libplist-2.0.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		12647629297FD43D0015A50A /* libssl.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF9A297C30AC002D960D /* libssl.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		1264762A297FD43E0015A50A /* libusbmuxd-2.0.6.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF98297C30AC002D960D /* libusbmuxd-2.0.6.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		126918CD297E897E0031424C /* xpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126918CC297E897E0031424C /* xpc.swift */; };
+		126918CF297E982C0031424C /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126918CE297E982C0031424C /* Commands.swift */; };
+		126918D0297EB2930031424C /* types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F467D32979B67800FED23C /* types.swift */; };
 		1290BF9B297C30AC002D960D /* libcrypto.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF95297C30AC002D960D /* libcrypto.3.dylib */; };
-		1290BF9C297C30AC002D960D /* libcrypto.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF95297C30AC002D960D /* libcrypto.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		1290BF9D297C30AC002D960D /* libimobiledevice-glue-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF96297C30AC002D960D /* libimobiledevice-glue-1.0.0.dylib */; };
-		1290BF9E297C30AC002D960D /* libimobiledevice-glue-1.0.0.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF96297C30AC002D960D /* libimobiledevice-glue-1.0.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		1290BF9F297C30AC002D960D /* libimobiledevice-1.0.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF97297C30AC002D960D /* libimobiledevice-1.0.6.dylib */; };
-		1290BFA0297C30AC002D960D /* libimobiledevice-1.0.6.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF97297C30AC002D960D /* libimobiledevice-1.0.6.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		1290BFA1297C30AC002D960D /* libusbmuxd-2.0.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF98297C30AC002D960D /* libusbmuxd-2.0.6.dylib */; };
-		1290BFA2297C30AC002D960D /* libusbmuxd-2.0.6.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF98297C30AC002D960D /* libusbmuxd-2.0.6.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		1290BFA3297C30AC002D960D /* libplist-2.0.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF99297C30AC002D960D /* libplist-2.0.3.dylib */; };
-		1290BFA4297C30AC002D960D /* libplist-2.0.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF99297C30AC002D960D /* libplist-2.0.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		1290BFA5297C30AC002D960D /* libssl.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF9A297C30AC002D960D /* libssl.3.dylib */; };
-		1290BFA6297C30AC002D960D /* libssl.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF9A297C30AC002D960D /* libssl.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		1290BFA8297C316C002D960D /* libcrypto.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF95297C30AC002D960D /* libcrypto.3.dylib */; };
-		1290BFA9297C316C002D960D /* libcrypto.3.dylib in Install Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF95297C30AC002D960D /* libcrypto.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		1290BFAA297C316C002D960D /* libimobiledevice-1.0.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF97297C30AC002D960D /* libimobiledevice-1.0.6.dylib */; };
-		1290BFAB297C316C002D960D /* libimobiledevice-1.0.6.dylib in Install Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF97297C30AC002D960D /* libimobiledevice-1.0.6.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		1290BFAC297C316C002D960D /* libimobiledevice-glue-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF96297C30AC002D960D /* libimobiledevice-glue-1.0.0.dylib */; };
-		1290BFAD297C316C002D960D /* libimobiledevice-glue-1.0.0.dylib in Install Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF96297C30AC002D960D /* libimobiledevice-glue-1.0.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		1290BFAE297C316C002D960D /* libplist-2.0.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF99297C30AC002D960D /* libplist-2.0.3.dylib */; };
-		1290BFAF297C316C002D960D /* libplist-2.0.3.dylib in Install Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF99297C30AC002D960D /* libplist-2.0.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		1290BFB0297C316C002D960D /* libssl.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF9A297C30AC002D960D /* libssl.3.dylib */; };
-		1290BFB1297C316C002D960D /* libssl.3.dylib in Install Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF9A297C30AC002D960D /* libssl.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		1290BFB2297C316C002D960D /* libusbmuxd-2.0.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF98297C30AC002D960D /* libusbmuxd-2.0.6.dylib */; };
-		1290BFB3297C316C002D960D /* libusbmuxd-2.0.6.dylib in Install Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF98297C30AC002D960D /* libusbmuxd-2.0.6.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		12D7B16D2979C04600593124 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D7B16C2979C04600593124 /* main.swift */; };
+		12E5BDD2297EF16A009B5BE2 /* libcrypto.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF95297C30AC002D960D /* libcrypto.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		12E5BDD4297EF16C009B5BE2 /* libimobiledevice-1.0.6.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF97297C30AC002D960D /* libimobiledevice-1.0.6.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		12E5BDD5297EF16D009B5BE2 /* libimobiledevice-glue-1.0.0.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF96297C30AC002D960D /* libimobiledevice-glue-1.0.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		12E5BDD6297EF16F009B5BE2 /* libplist-2.0.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF99297C30AC002D960D /* libplist-2.0.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		12E5BDD7297EF171009B5BE2 /* libssl.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF9A297C30AC002D960D /* libssl.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		12E5BDD8297EF172009B5BE2 /* libusbmuxd-2.0.6.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF98297C30AC002D960D /* libusbmuxd-2.0.6.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		12E5BDDB297F0227009B5BE2 /* com.jeroenwk.idevicedebuglauncher.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12F467CE2979B67800FED23C /* com.jeroenwk.idevicedebuglauncher.plist */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		12F467AB2979B3EF00FED23C /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F467AA2979B3EF00FED23C /* Main.swift */; };
 		12F467AD2979B3EF00FED23C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F467AC2979B3EF00FED23C /* ContentView.swift */; };
 		12F467AF2979B3F000FED23C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12F467AE2979B3F000FED23C /* Assets.xcassets */; };
 		12F467B22979B3F000FED23C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12F467B12979B3F000FED23C /* Preview Assets.xcassets */; };
-		12F467C82979B5B200FED23C /* daemon in Embed Daemon */ = {isa = PBXBuildFile; fileRef = 12F467BD2979B4B100FED23C /* daemon */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		12F467C82979B5B200FED23C /* daemon in Resources */ = {isa = PBXBuildFile; fileRef = 12F467BD2979B4B100FED23C /* daemon */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		12F467D52979B67800FED23C /* ideviceinfo.c in Sources */ = {isa = PBXBuildFile; fileRef = 12F467CA2979B67800FED23C /* ideviceinfo.c */; };
 		12F467D62979B67800FED23C /* arp.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F467CB2979B67800FED23C /* arp.m */; };
 		12F467D72979B67800FED23C /* address.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F467CC2979B67800FED23C /* address.m */; };
@@ -50,6 +54,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		126918DD297ED99D0031424C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 12F4679F2979B3EF00FED23C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 12F467A62979B3EF00FED23C;
+			remoteInfo = idevicedebuglauncher;
+		};
 		12F467C52979B5A000FED23C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 12F4679F2979B3EF00FED23C /* Project object */;
@@ -60,61 +71,54 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		1290BFA7297C30AC002D960D /* Embed Libraries */ = {
+		12647625297FD4370015A50A /* Embed Libraries */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1290BFA6297C30AC002D960D /* libssl.3.dylib in Embed Libraries */,
-				1290BFA2297C30AC002D960D /* libusbmuxd-2.0.6.dylib in Embed Libraries */,
-				1290BFA0297C30AC002D960D /* libimobiledevice-1.0.6.dylib in Embed Libraries */,
-				1290BF9C297C30AC002D960D /* libcrypto.3.dylib in Embed Libraries */,
-				1290BFA4297C30AC002D960D /* libplist-2.0.3.dylib in Embed Libraries */,
-				1290BF9E297C30AC002D960D /* libimobiledevice-glue-1.0.0.dylib in Embed Libraries */,
+				1264762A297FD43E0015A50A /* libusbmuxd-2.0.6.dylib in Embed Libraries */,
+				12647629297FD43D0015A50A /* libssl.3.dylib in Embed Libraries */,
+				12647627297FD43A0015A50A /* libimobiledevice-glue-1.0.0.dylib in Embed Libraries */,
+				12647626297FD4380015A50A /* libimobiledevice-1.0.6.dylib in Embed Libraries */,
+				12647624297FD4370015A50A /* libcrypto.3.dylib in Embed Libraries */,
+				12647628297FD43B0015A50A /* libplist-2.0.3.dylib in Embed Libraries */,
 			);
 			name = "Embed Libraries";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1290BFB4297C316C002D960D /* Install Frameworks */ = {
+		12E5BDD3297EF16A009B5BE2 /* Embed Libraries */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1290BFB3297C316C002D960D /* libusbmuxd-2.0.6.dylib in Install Frameworks */,
-				1290BFB1297C316C002D960D /* libssl.3.dylib in Install Frameworks */,
-				1290BFAD297C316C002D960D /* libimobiledevice-glue-1.0.0.dylib in Install Frameworks */,
-				1290BFAB297C316C002D960D /* libimobiledevice-1.0.6.dylib in Install Frameworks */,
-				1290BFA9297C316C002D960D /* libcrypto.3.dylib in Install Frameworks */,
-				1290BFAF297C316C002D960D /* libplist-2.0.3.dylib in Install Frameworks */,
+				12E5BDD8297EF172009B5BE2 /* libusbmuxd-2.0.6.dylib in Embed Libraries */,
+				12E5BDD7297EF171009B5BE2 /* libssl.3.dylib in Embed Libraries */,
+				12E5BDD5297EF16D009B5BE2 /* libimobiledevice-glue-1.0.0.dylib in Embed Libraries */,
+				12E5BDD4297EF16C009B5BE2 /* libimobiledevice-1.0.6.dylib in Embed Libraries */,
+				12E5BDD2297EF16A009B5BE2 /* libcrypto.3.dylib in Embed Libraries */,
+				12E5BDD6297EF16F009B5BE2 /* libplist-2.0.3.dylib in Embed Libraries */,
 			);
-			name = "Install Frameworks";
+			name = "Embed Libraries";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		12F467BB2979B4B100FED23C /* CopyFiles */ = {
+		12E5BDDA297F0217009B5BE2 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			dstPath = Contents/Library/LaunchDaemons;
+			dstSubfolderSpec = 1;
 			files = (
+				12E5BDDB297F0227009B5BE2 /* com.jeroenwk.idevicedebuglauncher.plist in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-		12F467C72979B5A600FED23C /* Embed Daemon */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 6;
-			files = (
-				12F467C82979B5B200FED23C /* daemon in Embed Daemon */,
-			);
-			name = "Embed Daemon";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		126918CC297E897E0031424C /* xpc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xpc.swift; sourceTree = "<group>"; };
+		126918CE297E982C0031424C /* Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
+		126918D5297ED8540031424C /* installer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = installer; sourceTree = BUILT_PRODUCTS_DIR; };
 		1290BF95297C30AC002D960D /* libcrypto.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.3.dylib; path = lib/universal/libcrypto.3.dylib; sourceTree = "<group>"; };
 		1290BF96297C30AC002D960D /* libimobiledevice-glue-1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libimobiledevice-glue-1.0.0.dylib"; path = "lib/universal/libimobiledevice-glue-1.0.0.dylib"; sourceTree = "<group>"; };
 		1290BF97297C30AC002D960D /* libimobiledevice-1.0.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libimobiledevice-1.0.6.dylib"; path = "lib/universal/libimobiledevice-1.0.6.dylib"; sourceTree = "<group>"; };
@@ -122,6 +126,10 @@
 		1290BF99297C30AC002D960D /* libplist-2.0.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libplist-2.0.3.dylib"; path = "lib/universal/libplist-2.0.3.dylib"; sourceTree = "<group>"; };
 		1290BF9A297C30AC002D960D /* libssl.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libssl.3.dylib; path = lib/universal/libssl.3.dylib; sourceTree = "<group>"; };
 		12D7B16C2979C04600593124 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		12E5BDCF297EEDB2009B5BE2 /* postinstall.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = postinstall.sh; sourceTree = "<group>"; };
+		12E5BDD0297EEDBD009B5BE2 /* generate_pkg.zsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = generate_pkg.zsh; sourceTree = "<group>"; };
+		12E5BDD1297EEEA8009B5BE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12E5BDD9297EFDEA009B5BE2 /* installer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = installer.entitlements; sourceTree = "<group>"; };
 		12F467A72979B3EF00FED23C /* idevicedebuglauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idevicedebuglauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12F467AA2979B3EF00FED23C /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		12F467AC2979B3EF00FED23C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -151,12 +159,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1290BFB2297C316C002D960D /* libusbmuxd-2.0.6.dylib in Frameworks */,
-				1290BFB0297C316C002D960D /* libssl.3.dylib in Frameworks */,
-				1290BFAC297C316C002D960D /* libimobiledevice-glue-1.0.0.dylib in Frameworks */,
-				1290BFAA297C316C002D960D /* libimobiledevice-1.0.6.dylib in Frameworks */,
-				1290BFA8297C316C002D960D /* libcrypto.3.dylib in Frameworks */,
-				1290BFAE297C316C002D960D /* libplist-2.0.3.dylib in Frameworks */,
+				1264761E297FD41A0015A50A /* libcrypto.3.dylib in Frameworks */,
+				1264761F297FD41A0015A50A /* libimobiledevice-1.0.6.dylib in Frameworks */,
+				12647620297FD41A0015A50A /* libimobiledevice-glue-1.0.0.dylib in Frameworks */,
+				12647621297FD41A0015A50A /* libplist-2.0.3.dylib in Frameworks */,
+				12647622297FD41A0015A50A /* libssl.3.dylib in Frameworks */,
+				12647623297FD41A0015A50A /* libusbmuxd-2.0.6.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,14 +185,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		126918C9297E74E10031424C /* scripts */ = {
+			isa = PBXGroup;
+			children = (
+				12E5BDCF297EEDB2009B5BE2 /* postinstall.sh */,
+			);
+			path = scripts;
+			sourceTree = "<group>";
+		};
+		126918D6297ED8540031424C /* installer */ = {
+			isa = PBXGroup;
+			children = (
+				12E5BDD9297EFDEA009B5BE2 /* installer.entitlements */,
+				12E5BDD0297EEDBD009B5BE2 /* generate_pkg.zsh */,
+				126918C9297E74E10031424C /* scripts */,
+				12E5BDD1297EEEA8009B5BE2 /* Info.plist */,
+			);
+			path = installer;
+			sourceTree = "<group>";
+		};
 		12F4679E2979B3EF00FED23C = {
 			isa = PBXGroup;
 			children = (
 				12FC23312979E39A0065687B /* README.md */,
 				12F467E62979B88200FED23C /* lib */,
 				12F467DF2979B72300FED23C /* include */,
+				12F467D32979B67800FED23C /* types.swift */,
 				12F467A92979B3EF00FED23C /* idevicedebuglauncher */,
 				12F467BE2979B4B100FED23C /* daemon */,
+				126918D6297ED8540031424C /* installer */,
 				12F467A82979B3EF00FED23C /* Products */,
 				12F467E32979B81900FED23C /* Frameworks */,
 			);
@@ -195,6 +224,7 @@
 			children = (
 				12F467A72979B3EF00FED23C /* idevicedebuglauncher.app */,
 				12F467BD2979B4B100FED23C /* daemon */,
+				126918D5297ED8540031424C /* installer */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -204,6 +234,7 @@
 			children = (
 				12F467AA2979B3EF00FED23C /* Main.swift */,
 				12F467AC2979B3EF00FED23C /* ContentView.swift */,
+				126918CE297E982C0031424C /* Commands.swift */,
 				12F467AE2979B3F000FED23C /* Assets.xcassets */,
 				12F467B32979B3F000FED23C /* idevicedebuglauncher.entitlements */,
 				12F467B02979B3F000FED23C /* Preview Content */,
@@ -222,18 +253,18 @@
 		12F467BE2979B4B100FED23C /* daemon */ = {
 			isa = PBXGroup;
 			children = (
+				12F467CE2979B67800FED23C /* com.jeroenwk.idevicedebuglauncher.plist */,
 				12D7B16C2979C04600593124 /* main.swift */,
+				126918CC297E897E0031424C /* xpc.swift */,
+				12F467D12979B67800FED23C /* server.swift */,
+				12F467D22979B67800FED23C /* routes.swift */,
+				12F467D42979B67800FED23C /* lib.swift */,
+				12F467CD2979B67800FED23C /* chelpers.swift */,
 				12F467C92979B67800FED23C /* daemon-Bridging-Header.h */,
 				12F467CC2979B67800FED23C /* address.m */,
 				12F467CB2979B67800FED23C /* arp.m */,
-				12F467CD2979B67800FED23C /* chelpers.swift */,
-				12F467CE2979B67800FED23C /* com.jeroenwk.idevicedebuglauncher.plist */,
 				12F467CF2979B67800FED23C /* idevicedebug.c */,
 				12F467CA2979B67800FED23C /* ideviceinfo.c */,
-				12F467D42979B67800FED23C /* lib.swift */,
-				12F467D22979B67800FED23C /* routes.swift */,
-				12F467D12979B67800FED23C /* server.swift */,
-				12F467D32979B67800FED23C /* types.swift */,
 				12F467C42979B4B900FED23C /* daemon.entitlements */,
 			);
 			path = daemon;
@@ -255,6 +286,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		126918D4297ED8540031424C /* installer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 126918DB297ED8540031424C /* Build configuration list for PBXNativeTarget "installer" */;
+			buildPhases = (
+				126918DC297ED8940031424C /* Generate Installer Package */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				126918DE297ED99D0031424C /* PBXTargetDependency */,
+			);
+			name = installer;
+			productName = installer;
+			productReference = 126918D5297ED8540031424C /* installer */;
+			productType = "com.apple.product-type.tool";
+		};
 		12F467A62979B3EF00FED23C /* idevicedebuglauncher */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 12F467B62979B3F000FED23C /* Build configuration list for PBXNativeTarget "idevicedebuglauncher" */;
@@ -262,8 +309,8 @@
 				12F467A32979B3EF00FED23C /* Sources */,
 				12F467A42979B3EF00FED23C /* Frameworks */,
 				12F467A52979B3EF00FED23C /* Resources */,
-				12F467C72979B5A600FED23C /* Embed Daemon */,
-				1290BFB4297C316C002D960D /* Install Frameworks */,
+				12E5BDDA297F0217009B5BE2 /* CopyFiles */,
+				12647625297FD4370015A50A /* Embed Libraries */,
 			);
 			buildRules = (
 			);
@@ -283,8 +330,7 @@
 			buildPhases = (
 				12F467B92979B4B100FED23C /* Sources */,
 				12F467BA2979B4B100FED23C /* Frameworks */,
-				12F467BB2979B4B100FED23C /* CopyFiles */,
-				1290BFA7297C30AC002D960D /* Embed Libraries */,
+				12E5BDD3297EF16A009B5BE2 /* Embed Libraries */,
 			);
 			buildRules = (
 			);
@@ -308,6 +354,9 @@
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					126918D4297ED8540031424C = {
+						CreatedOnToolsVersion = 14.2;
+					};
 					12F467A62979B3EF00FED23C = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -335,6 +384,7 @@
 			targets = (
 				12F467A62979B3EF00FED23C /* idevicedebuglauncher */,
 				12F467BC2979B4B100FED23C /* daemon */,
+				126918D4297ED8540031424C /* installer */,
 			);
 		};
 /* End PBXProject section */
@@ -346,10 +396,35 @@
 			files = (
 				12F467B22979B3F000FED23C /* Preview Assets.xcassets in Resources */,
 				12F467AF2979B3F000FED23C /* Assets.xcassets in Resources */,
+				12F467C82979B5B200FED23C /* daemon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		126918DC297ED8940031424C /* Generate Installer Package */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/installer/generate_pkg.zsh",
+				"$(SRCROOT)/installer/scripts",
+			);
+			name = "Generate Installer Package";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/idevicedebuglauncher.pkg",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ". \"${SCRIPT_INPUT_FILE_0}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		12F467A32979B3EF00FED23C /* Sources */ = {
@@ -357,7 +432,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				12F467AD2979B3EF00FED23C /* ContentView.swift in Sources */,
+				126918CF297E982C0031424C /* Commands.swift in Sources */,
 				12F467AB2979B3EF00FED23C /* Main.swift in Sources */,
+				126918D0297EB2930031424C /* types.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +448,7 @@
 				12F467D82979B67800FED23C /* chelpers.swift in Sources */,
 				12F467DB2979B67800FED23C /* server.swift in Sources */,
 				12F467DD2979B67800FED23C /* types.swift in Sources */,
+				126918CD297E897E0031424C /* xpc.swift in Sources */,
 				12D7B16D2979C04600593124 /* main.swift in Sources */,
 				12F467DE2979B67800FED23C /* lib.swift in Sources */,
 				12F467D52979B67800FED23C /* ideviceinfo.c in Sources */,
@@ -381,6 +459,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		126918DE297ED99D0031424C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 12F467A62979B3EF00FED23C /* idevicedebuglauncher */;
+			targetProxy = 126918DD297ED99D0031424C /* PBXContainerItemProxy */;
+		};
 		12F467C62979B5A000FED23C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 12F467BC2979B4B100FED23C /* daemon */;
@@ -389,6 +472,38 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		126918D9297ED8540031424C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = installer/installer.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7K8DK3VS42;
+				ENABLE_HARDENED_RUNTIME = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/installer/Info.plist";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeroenwk.idevicedebuglauncher.installer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		126918DA297ED8540031424C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = installer/installer.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7K8DK3VS42;
+				ENABLE_HARDENED_RUNTIME = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/installer/Info.plist";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeroenwk.idevicedebuglauncher.installer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		12F467B42979B3F000FED23C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -439,7 +554,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -493,7 +608,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -515,6 +630,7 @@
 				DEVELOPMENT_TEAM = 7K8DK3VS42;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -548,6 +664,7 @@
 				DEVELOPMENT_TEAM = 7K8DK3VS42;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -587,7 +704,6 @@
 					"$(PROJECT_DIR)/lib/universal",
 					"$(PROJECT_DIR)/lib/arm64",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				OTHER_CODE_SIGN_FLAGS = "$(inherited) -i $(PRODUCT_BUNDLE_IDENTIFIER)";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeroenwk.idevicedebuglauncher.daemon;
@@ -618,7 +734,6 @@
 					"$(PROJECT_DIR)/lib/universal",
 					"$(PROJECT_DIR)/lib/arm64",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				OTHER_CODE_SIGN_FLAGS = "$(inherited) -i $(PRODUCT_BUNDLE_IDENTIFIER)";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeroenwk.idevicedebuglauncher.daemon;
@@ -632,6 +747,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		126918DB297ED8540031424C /* Build configuration list for PBXNativeTarget "installer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				126918D9297ED8540031424C /* Debug */,
+				126918DA297ED8540031424C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		12F467A22979B3EF00FED23C /* Build configuration list for PBXProject "idevicedebuglauncher" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -2,26 +2,36 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Label</key>
-	<string>com.jeroenwk.idevicedebuglauncher</string>
-	<key>KeepAlive</key>
-	<false/>
-	<key>RunAtLoad</key>
-	<true/>
+    <key>Label</key>
+    <string>com.jeroenwk.idevicedebuglauncher</string>
+    <key>KeepAlive</key>
+    <false/>
+    <key>RunAtLoad</key>
+    <true/>
     <key>StandardOutPath</key>
     <string>/usr/local/var/log/idevicedebuglauncher.log</string>
     <key>StandardErrorPath</key>
     <string>/usr/local/var/log/idevicedebuglauncher.log</string>
-	<key>ProgramArguments</key>
-	<array>
-		<string>/usr/local/bin/idevicedebuglauncher</string>
+    <key>BundleProgram</key>
+    <string>Contents/Resources/daemon</string>
+    
+    <!--<key>ProgramArguments</key>
+    <array>
+        <string>/Applications/idevicedebuglauncher.app/Contents/Resources/daemon</string>
         <string>8181</string>
-	</array>
-	<key>Sockets</key>
-	<dict>
-		<key>Listeners</key>
-		<array>
-			<dict>
+    </array>-->
+    
+    <key>MachServices</key>
+    <dict>
+        <key>com.xpc.idevicedebuglauncher.sendcommand</key>
+        <true/>
+    </dict>
+    
+    <!--<key>Sockets</key>
+    <dict>
+        <key>Listeners</key>
+        <array>
+            <dict>
                 <key>SockNodeName</key>
                 <string>0.0.0.0</string>
                 <key>SockServiceName</key>
@@ -30,8 +40,8 @@
                 <array>
                     <string>idevicedebuglauncher</string>
                 </array>
-			</dict>
-		</array>
-	</dict>
+            </dict>
+        </array>
+    </dict>-->
 </dict>
 </plist>

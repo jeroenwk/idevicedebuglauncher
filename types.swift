@@ -12,9 +12,21 @@ enum DeviceType: CustomStringConvertible, Codable {
             return "Network"
         }
     }
+    
+    var icon: String {
+        switch self {
+        case.usb:
+            return "cable.connector"
+        case .network:
+            return "network"
+        }
+    }
 }
 
-struct DeviceInfo: Codable {
+struct DeviceInfo: Codable, Identifiable {
+    var id: String {
+        return deviceId + "-" + deviceType.description
+    }
     var deviceId: String
     var deviceType: DeviceType
 }
