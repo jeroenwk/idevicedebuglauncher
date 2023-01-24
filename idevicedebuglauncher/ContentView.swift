@@ -9,18 +9,13 @@ struct ContentView: View {
     @State private var devices: [DeviceInfo] = []
     
     func getDevices() -> [DeviceInfo] {
-        let fakes_devices = [
-            DeviceInfo(deviceId: "00008110-001E059026C1801E", deviceType: .usb),
-            DeviceInfo(deviceId: "00008110-001E059026C1801E", deviceType: .network),
-            DeviceInfo(deviceId: "bbc1630faa46f5acb41938898ef7b26e912f9bf8", deviceType: .network),
-
-            ]
-        
-        DispatchQueue.global(qos: .userInitiated).async {
-            Commands.send("listDevices")
+        let ret = Commands.send("listDevices")
+        if let data = ret.data(using: .utf8) {
+            if let devices = try? JSONDecoder().decode([DeviceInfo].self, from: data) {
+                return devices
+            }
         }
-        
-        return fakes_devices
+        return []
     }
     
     var body: some View {
@@ -51,13 +46,15 @@ struct ContentView: View {
                 
                 HStack {
                     Button {
-                        devices = getDevices()
+                        DispatchQueue.global(qos: .userInitiated).async {
+                            devices = getDevices()
+                        }
                     } label: {
                         Text("Refresh devices")
                             .padding(20)
                     }
                     Button {
-                        Commands.send("pair")
+                        //Commands.send("pair")
                     } label: {
                         Text("Pair Apple TV")
                             .padding(20)
@@ -71,12 +68,8 @@ struct ContentView: View {
                     TableColumn("Id", value: \.deviceId)
                     TableColumn("Type") { device in
                         Label(device.deviceType.description, systemImage: device.deviceType.icon)
-
                     }
                 }
-                
-                
-                
             }
         }
         .padding()

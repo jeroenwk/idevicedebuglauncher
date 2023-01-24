@@ -11,8 +11,25 @@ func listenXpc() {
             if xpc_get_type(request) == XPC_TYPE_DICTIONARY {
                 let message = xpc_dictionary_get_string(request, "MessageKey")
                 let encodedMessage = String(cString: message!)
+                
                 let reply = xpc_dictionary_create_reply(request)
-                let response = "\(encodedMessage)"
+                
+                var response = "unknown command: \(encodedMessage)"
+                
+                // TODO: use MessagesEnum istead of strings
+                if encodedMessage == "listDevices" {
+                    let devices = LibIMobileDevice.shared.getDeviceList()
+                    if let json = json(devices) {
+                        if let data = try? JSONSerialization.data(withJSONObject: json) {
+                            response = String(data: data, encoding: .utf8) ?? "error while calling getDeviceList"
+                        } else {
+                            response = "error while calling getDeviceList"
+                        }
+                    } else {
+                        response = "error while calling getDeviceList"
+                    }
+                }
+
                 response.withCString { rawResponse in
                     xpc_dictionary_set_string(reply!, "ResponseKey", rawResponse)
                 }

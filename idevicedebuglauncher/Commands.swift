@@ -34,7 +34,7 @@ class Commands {
         return service.status
     }
     
-    class func send(_ message: String) {
+    class func send(_ message: String) -> String {
         let request = xpc_dictionary_create_empty()
         message.withCString { rawMessage in
             xpc_dictionary_set_string(request, "MessageKey", rawMessage)
@@ -44,20 +44,20 @@ class Commands {
         let session = xpc_session_create_mach_service("com.xpc.idevicedebuglauncher.sendcommand", nil, .none, &error)
         if let error {
             logger.error("Unable to create xpc_session \(error.description)")
-            return
+            return error.description
         }
 
         let reply = xpc_session_send_message_with_reply_sync(session!, request, &error)
         if let error = error {
             logger.error("Error sending message \(error.description)")
-            return
+            return error.description
         }
 
         let response = xpc_dictionary_get_string(reply!, "ResponseKey")
         let encodedResponse = String(cString: response!)
 
-        logger.info("Received \"\(encodedResponse)\"")
-
         xpc_session_cancel(session!)
+        
+        return encodedResponse
     }
 }
