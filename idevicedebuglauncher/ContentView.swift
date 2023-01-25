@@ -2,11 +2,36 @@ import SwiftUI
 import ServiceManagement
 
 struct ContentView: View {
+    // service state
     @State private var installed = false
-    @State private var running = false
     @State private var notAllowed = false
     
+    // server state
+    @State private var serverState = ServerState(running: false)
+    @State private var port = ""
+    
     @State private var devices: [DeviceInfo] = []
+    
+    
+    func stopServer() {
+        
+    }
+    
+    func startServer() {
+        
+    }
+    
+    func updateServerState() {
+        let ret = Commands.send("serverState")
+        if let data = ret.data(using: .utf8) {
+            if let state = try? JSONDecoder().decode(ServerState.self, from: data) {
+                serverState = state
+                if let p = serverState.port {
+                    port = String(p)
+                }
+            }
+        }
+    }
     
     func getDevices() -> [DeviceInfo] {
         let ret = Commands.send("listDevices")
@@ -33,18 +58,33 @@ struct ContentView: View {
                     if notAllowed {
                         Text("Please allow idevicedebuglauncher in the Background")
                             .foregroundColor(.red)
+                    } else {
+                        Spacer()
+                        Text("on port:")
+                        TextField("port number", text: $port)
                     }
                 }
                 
                 HStack {
                     Text("Status: ")
-                    Label(running ? "on" : "off", systemImage: "circle.fill")
-                        .foregroundColor(running ? .green : .red)
+                    Label(serverState.running ? "on" : "off", systemImage: "circle.fill")
+                        .foregroundColor(serverState.running ? .green : .red)
+                    if serverState.running {
+                        Link("http://localhost:\(port)/idevice_id/", destination: URL(string: "http://localhost:\(port)/idevice_id/")!)
+                    }
                 }
                 
                 Divider()
                 
                 HStack {
+                    Button {
+                        DispatchQueue.global(qos: .userInitiated).async {
+                            serverState.running ? stopServer() : startServer()
+                        }
+                    } label: {
+                        Text(serverState.running ? "Stop Server" : "Start Server")
+                            .padding(20)
+                    }
                     Button {
                         DispatchQueue.global(qos: .userInitiated).async {
                             devices = getDevices()
@@ -87,11 +127,11 @@ struct ContentView: View {
                         SMAppService.openSystemSettingsLoginItems()
                     } else {
                         notAllowed = false
-                        running = true
+                        updateServerState()
                         devices = getDevices()
                     }
                 } else {
-                    running = false
+                    serverState = ServerState(running: false)
                     Commands.unregister()
                 }
             }

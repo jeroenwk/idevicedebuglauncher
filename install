@@ -1,0 +1,4 @@
+#!/bin/sh
+echo "installing idevicedebuglauncher ..."
+cp -r ./build/Build/Products/Release/idevicedebuglauncher.app /Applications/
+echo "done installing"

@@ -5,7 +5,15 @@ let logger = Logger(subsystem: "com.jeroenwk.idevicedebuglauncher.daemon", categ
 
 logger.info("starting idevicedebuglauncher daemon ...")
 
-let serverPort = UInt16(CommandLine.arguments.count > 1 ? CommandLine.arguments[1] : "") ?? UInt16(8181)
+guard CommandLine.arguments.count > 1  else {
+    logger.error("No default port specified")
+    exit(1)
+}
+
+guard let defaultServerPort = UInt16(CommandLine.arguments[1]) else {
+    logger.error("Invalid argument given")
+    exit(1)
+}
 
 logger.info("initializing libimobiledevice ...")
 let lib = LibIMobileDevice.shared
@@ -15,7 +23,7 @@ logger.info("start listening to xpc commands ...")
 listenXpc()
 
 logger.info("starting webserver ...")
-startServer()
+startServer(port: defaultServerPort)
 
 logger.info("idevicedebuglauncher daemon started successfully")
 dispatchMain()

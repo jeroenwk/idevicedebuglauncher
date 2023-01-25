@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1205D3522981151100BF36D0 /* compile in Resources */ = {isa = PBXBuildFile; fileRef = 1205D3512981151100BF36D0 /* compile */; };
 		1264761E297FD41A0015A50A /* libcrypto.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF95297C30AC002D960D /* libcrypto.3.dylib */; };
 		1264761F297FD41A0015A50A /* libimobiledevice-1.0.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF97297C30AC002D960D /* libimobiledevice-1.0.6.dylib */; };
 		12647620297FD41A0015A50A /* libimobiledevice-glue-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF96297C30AC002D960D /* libimobiledevice-glue-1.0.0.dylib */; };
@@ -116,6 +117,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1205D3512981151100BF36D0 /* compile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = compile; sourceTree = "<group>"; };
+		12247228298159CD00A6FD9A /* install */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = install; sourceTree = "<group>"; };
+		12247229298159FC00A6FD9A /* run */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = run; sourceTree = "<group>"; };
 		126918CC297E897E0031424C /* xpc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xpc.swift; sourceTree = "<group>"; };
 		126918CE297E982C0031424C /* Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
 		126918D5297ED8540031424C /* installer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = installer; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,6 +211,9 @@
 		12F4679E2979B3EF00FED23C = {
 			isa = PBXGroup;
 			children = (
+				12247229298159FC00A6FD9A /* run */,
+				12247228298159CD00A6FD9A /* install */,
+				1205D3512981151100BF36D0 /* compile */,
 				12FC23312979E39A0065687B /* README.md */,
 				12F467E62979B88200FED23C /* lib */,
 				12F467DF2979B72300FED23C /* include */,
@@ -396,6 +403,7 @@
 			files = (
 				12F467B22979B3F000FED23C /* Preview Assets.xcassets in Resources */,
 				12F467AF2979B3F000FED23C /* Assets.xcassets in Resources */,
+				1205D3522981151100BF36D0 /* compile in Resources */,
 				12F467C82979B5B200FED23C /* daemon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

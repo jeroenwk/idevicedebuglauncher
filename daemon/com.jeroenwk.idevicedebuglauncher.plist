@@ -14,34 +14,15 @@
     <string>/usr/local/var/log/idevicedebuglauncher.log</string>
     <key>BundleProgram</key>
     <string>Contents/Resources/daemon</string>
-    
-    <!--<key>ProgramArguments</key>
+    <key>ProgramArguments</key>
     <array>
-        <string>/Applications/idevicedebuglauncher.app/Contents/Resources/daemon</string>
-        <string>8181</string>
-    </array>-->
-    
+        <string>daemon</string>
+        <string>8383</string>
+    </array>
     <key>MachServices</key>
     <dict>
         <key>com.xpc.idevicedebuglauncher.sendcommand</key>
         <true/>
     </dict>
-    
-    <!--<key>Sockets</key>
-    <dict>
-        <key>Listeners</key>
-        <array>
-            <dict>
-                <key>SockNodeName</key>
-                <string>0.0.0.0</string>
-                <key>SockServiceName</key>
-                <string>8181</string>
-                <key>Bonjour</key>
-                <array>
-                    <string>idevicedebuglauncher</string>
-                </array>
-            </dict>
-        </array>
-    </dict>-->
 </dict>
 </plist>

@@ -30,3 +30,8 @@ struct DeviceInfo: Codable, Identifiable {
     var deviceId: String
     var deviceType: DeviceType
 }
+
+struct ServerState: Codable {
+    var running: Bool
+    var port: UInt16?
+}

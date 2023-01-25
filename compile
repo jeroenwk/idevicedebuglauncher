@@ -1,0 +1,8 @@
+#!/bin/zsh
+echo "uninstalling idevicedebuglauncher ..."
+rm -fr /Applications/idevicedebuglauncher.app
+echo "cleaning build folders ..."
+rm -fr ./build
+xcodebuild clean -scheme idevicedebuglauncher
+echo "building idevicedebuglauncher ..."
+xcodebuild -scheme idevicedebuglauncher -configuration Release -derivedDataPath ./build
