@@ -9,12 +9,18 @@ struct ContentView: View {
     @State private var installRequested = false
     @State private var devices: [DeviceInfo] = []
     @State private var port = ""
+    @State private var isPairing = false
+    @ObservedObject private var code = OTPModel()
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     func getServiceState() {
         self.serviceState = Commands.status()
         updateServiceState()
+    }
+    
+    func validateCode() {
+        
     }
     
     func updateServiceState() {
@@ -51,6 +57,15 @@ struct ContentView: View {
         Commands.send(.LIST_DEVICES) { response in
             if let devices = response as? [DeviceInfo] {
                 self.devices = devices
+            }
+        }
+    }
+    
+    func pairAppleTV() {
+        isPairing = true
+        Commands.send(.APPLETV_PAIR) { response in
+            if let errorCode = response as? ErrorCode {
+                print(errorCode)
             }
         }
     }
@@ -111,20 +126,28 @@ struct ContentView: View {
                             .padding(20)
                     }
                     Button {
-                        //Commands.send("pair")
+                        pairAppleTV()
                     } label: {
                         Text("Pair Apple TV")
                             .padding(20)
                     }
                 }
                 
-                Text("Devices")
-                    .font(.headline)
-                
-                Table(devices) {
-                    TableColumn("Id", value: \.deviceId)
-                    TableColumn("Type") { device in
-                        Label(device.deviceType.description, systemImage: device.deviceType.icon)
+                if isPairing {
+                    VStack(alignment: .leading) {
+                        Text("Navigate to Settings > Remotes and Devices > Remote App and Devices on your AppleTV and enter the code shown below")
+                        OTPView(viewModel: code)
+                    }
+                        .frame(maxHeight: .infinity)
+                } else {
+                    Text("Devices")
+                        .font(.headline)
+                    
+                    Table(devices) {
+                        TableColumn("Id", value: \.deviceId)
+                        TableColumn("Type") { device in
+                            Label(device.deviceType.description, systemImage: device.deviceType.icon)
+                        }
                     }
                 }
             }
@@ -132,6 +155,12 @@ struct ContentView: View {
         .padding()
         .task {
             getServiceState()
+        }
+        .onChange(of: code.otpField) { value in
+            if value.count == 6 {
+                isPairing = false
+                code.clear()
+            }
         }
         .onReceive(timer) { time in
             if serviceState != .notRegistered {

@@ -40,6 +40,7 @@
 		12E5BDD7297EF171009B5BE2 /* libssl.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF9A297C30AC002D960D /* libssl.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		12E5BDD8297EF172009B5BE2 /* libusbmuxd-2.0.6.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF98297C30AC002D960D /* libusbmuxd-2.0.6.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		12E5BDDB297F0227009B5BE2 /* com.jeroenwk.idevicedebuglauncher.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12F467CE2979B67800FED23C /* com.jeroenwk.idevicedebuglauncher.plist */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		12F09E272982D8E50024F11D /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F09E262982D8E50024F11D /* OTPView.swift */; };
 		12F467AB2979B3EF00FED23C /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F467AA2979B3EF00FED23C /* Main.swift */; };
 		12F467AD2979B3EF00FED23C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F467AC2979B3EF00FED23C /* ContentView.swift */; };
 		12F467AF2979B3F000FED23C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12F467AE2979B3F000FED23C /* Assets.xcassets */; };
@@ -139,6 +140,7 @@
 		12E5BDD0297EEDBD009B5BE2 /* generate_pkg.zsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = generate_pkg.zsh; sourceTree = "<group>"; };
 		12E5BDD1297EEEA8009B5BE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12E5BDD9297EFDEA009B5BE2 /* installer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = installer.entitlements; sourceTree = "<group>"; };
+		12F09E262982D8E50024F11D /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
 		12F467A72979B3EF00FED23C /* idevicedebuglauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idevicedebuglauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12F467AA2979B3EF00FED23C /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		12F467AC2979B3EF00FED23C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 			children = (
 				12F467AA2979B3EF00FED23C /* Main.swift */,
 				12F467AC2979B3EF00FED23C /* ContentView.swift */,
+				12F09E262982D8E50024F11D /* OTPView.swift */,
 				126918CE297E982C0031424C /* Commands.swift */,
 				12F467AE2979B3F000FED23C /* Assets.xcassets */,
 				12F467B32979B3F000FED23C /* idevicedebuglauncher.entitlements */,
@@ -448,6 +451,7 @@
 			files = (
 				12F467AD2979B3EF00FED23C /* ContentView.swift in Sources */,
 				126918CF297E982C0031424C /* Commands.swift in Sources */,
+				12F09E272982D8E50024F11D /* OTPView.swift in Sources */,
 				1224722B2981A0CA00A6FD9A /* json.swift in Sources */,
 				12F467AB2979B3EF00FED23C /* Main.swift in Sources */,
 				126918D0297EB2930031424C /* types.swift in Sources */,
