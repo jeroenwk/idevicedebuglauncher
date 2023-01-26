@@ -81,3 +81,6 @@ This is not implemented yet from the app yet!
 This is not implemented yet from the app yet!
 
     $ idevicedebug -n -u {device_id} run {bundle_id}
+
+## Deamon configuration
+The configuration is stored in /System/Volumes/Data/private/var/root/Library/Application\ Support/com.jeroenwk.idevicedebuglauncher/config.plist

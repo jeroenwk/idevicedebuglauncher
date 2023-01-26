@@ -2,24 +2,46 @@ import SwiftUI
 import ServiceManagement
 
 struct ContentView: View {
-    // daemon state
-    @State private var installed = false
-    @State private var notAllowed = false
-    
-    // server state
+    @State private var serviceState = SMAppService.Status(rawValue: 0)
     @State private var serverState = ServerState(running: false)
     
     // ui
+    @State private var installRequested = false
     @State private var devices: [DeviceInfo] = []
     @State private var port = ""
     
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+
+    func getServiceState() {
+        self.serviceState = Commands.status()
+        updateServiceState()
+    }
+    
+    func updateServiceState() {
+        if self.serviceState == .requiresApproval {
+            installRequested = true
+            self.serverState = ServerState(running: false)
+            SMAppService.openSystemSettingsLoginItems()
+        }
+        
+        if self.serviceState == .notRegistered {
+            self.serverState = ServerState(running: false)
+            installRequested = false
+        }
+        
+        if self.serviceState == .enabled {
+            installRequested = true
+        }
+    }
     
     func updateServerState(from command: Command, with payload: Codable? = nil) {
         Commands.send(command, payload: payload) { response in
             if let state = response as? ServerState {
                 self.serverState = state
                 if let p = serverState.port {
-                    self.port = String(p)
+                    if self.port == "" {
+                        self.port = String(p)
+                    }
                 }
             }
         }
@@ -49,14 +71,15 @@ struct ContentView: View {
             VStack(alignment: .leading) {
                 
                 HStack {
-                    Toggle(isOn: $installed) {
+                    Toggle(isOn: $installRequested) {
                         Text("Install as system service")
                     }
                     .toggleStyle(.switch)
-                    if notAllowed {
+                    if serviceState == .requiresApproval {
                         Text("Please allow idevicedebuglauncher in the Background")
                             .foregroundColor(.red)
-                    } else {
+                    }
+                    if serviceState == .enabled {
                         Spacer()
                         Text("on port:")
                         TextField("port number", text: $port)
@@ -107,27 +130,25 @@ struct ContentView: View {
             }
         }
         .padding()
-        .onChange(of: installed) { newValue in
+        .task {
+            getServiceState()
+        }
+        .onReceive(timer) { time in
+            if serviceState != .notRegistered {
+                getServiceState()
+            }
+        }
+        .onChange(of: installRequested) { newValue in
             DispatchQueue.global(qos: .userInitiated).async {
                 if newValue {
-                    let registered = Commands.register()
-                    let status = Commands.status()
-                    if !registered && (
-                        status == .requiresApproval ||
-                        status == .notFound ) {
-                        installed = false
-                        notAllowed = true
-                        logger.warning("Can't register daemon \(status.rawValue)")
-                        SMAppService.openSystemSettingsLoginItems()
-                    } else {
-                        notAllowed = false
-                        updateServerState(from: .GET_SERVER_STATE)
-                        updateDevices()
-                    }
+                    Commands.register()
+                    updateDevices()
                 } else {
-                    serverState = ServerState(running: false)
                     Commands.unregister()
                 }
+                getServiceState()
+                updateServerState(from: .GET_SERVER_STATE)
+                
             }
         }
     }

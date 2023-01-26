@@ -25,6 +25,7 @@
 		126918CD297E897E0031424C /* xpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126918CC297E897E0031424C /* xpc.swift */; };
 		126918CF297E982C0031424C /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126918CE297E982C0031424C /* Commands.swift */; };
 		126918D0297EB2930031424C /* types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F467D32979B67800FED23C /* types.swift */; };
+		12849CF329827A0E00771E4B /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12849CF229827A0E00771E4B /* config.swift */; };
 		1290BF9B297C30AC002D960D /* libcrypto.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF95297C30AC002D960D /* libcrypto.3.dylib */; };
 		1290BF9D297C30AC002D960D /* libimobiledevice-glue-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF96297C30AC002D960D /* libimobiledevice-glue-1.0.0.dylib */; };
 		1290BF9F297C30AC002D960D /* libimobiledevice-1.0.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF97297C30AC002D960D /* libimobiledevice-1.0.6.dylib */; };
@@ -126,6 +127,7 @@
 		126918CC297E897E0031424C /* xpc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xpc.swift; sourceTree = "<group>"; };
 		126918CE297E982C0031424C /* Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
 		126918D5297ED8540031424C /* installer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = installer; sourceTree = BUILT_PRODUCTS_DIR; };
+		12849CF229827A0E00771E4B /* config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
 		1290BF95297C30AC002D960D /* libcrypto.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.3.dylib; path = lib/universal/libcrypto.3.dylib; sourceTree = "<group>"; };
 		1290BF96297C30AC002D960D /* libimobiledevice-glue-1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libimobiledevice-glue-1.0.0.dylib"; path = "lib/universal/libimobiledevice-glue-1.0.0.dylib"; sourceTree = "<group>"; };
 		1290BF97297C30AC002D960D /* libimobiledevice-1.0.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libimobiledevice-1.0.6.dylib"; path = "lib/universal/libimobiledevice-1.0.6.dylib"; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				12F467CE2979B67800FED23C /* com.jeroenwk.idevicedebuglauncher.plist */,
+				12849CF229827A0E00771E4B /* config.swift */,
 				12D7B16C2979C04600593124 /* main.swift */,
 				126918CC297E897E0031424C /* xpc.swift */,
 				12F467D12979B67800FED23C /* server.swift */,
@@ -461,6 +464,7 @@
 				12F467D82979B67800FED23C /* chelpers.swift in Sources */,
 				12F467DB2979B67800FED23C /* server.swift in Sources */,
 				12F467DD2979B67800FED23C /* types.swift in Sources */,
+				12849CF329827A0E00771E4B /* config.swift in Sources */,
 				126918CD297E897E0031424C /* xpc.swift in Sources */,
 				12D7B16D2979C04600593124 /* main.swift in Sources */,
 				12F467DE2979B67800FED23C /* lib.swift in Sources */,

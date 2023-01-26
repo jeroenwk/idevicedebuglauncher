@@ -3,18 +3,15 @@ import ServiceManagement
 import XPCOverlay
 
 class Commands {
-    class func register() -> Bool {
+    class func register() {
         let service = SMAppService.daemon(plistName: "com.jeroenwk.idevicedebuglauncher.plist")
 
         do {
             try service.register()
             logger.info("Successfully registered \(service)")
-            return true
         } catch {
             logger.error("Unable to register \(error)")
         }
-        
-        return false
     }
 
     class func unregister() {
@@ -30,7 +27,7 @@ class Commands {
 
     class func status() -> SMAppService.Status {
         let service = SMAppService.daemon(plistName: "com.jeroenwk.idevicedebuglauncher.plist")
-        logger.info("\(service.description) has status \(service.status.rawValue)")
+        //logger.info("\(service.description) has status \(service.status.rawValue)")
         return service.status
     }
     

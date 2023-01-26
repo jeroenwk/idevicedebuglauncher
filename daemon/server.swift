@@ -11,6 +11,7 @@ func startServer(port: UInt16) {
     serverState.port = port
     do {
         try server.start(port, forceIPv4: true)
+        config.preferences.serverPort = port
         serverState.running = true
         logger.info("idevicedebuglauncher started on port \(port)")
         logger.info("register bonjour ...")
