@@ -2,6 +2,29 @@ import Foundation
 
 let listener = xpc_connection_create_mach_service("com.xpc.idevicedebuglauncher.sendcommand", nil, UInt64(XPC_CONNECTION_MACH_SERVICE_LISTENER))
 
+func executeCommand(_ command: Command, payloadString: String? = nil) -> Codable {
+    var payload: Any?
+    if let payloadString, let payloadType = command.payloadType as? Decodable.Type {
+        payload = fromJson(str: payloadString, type: payloadType)
+    }
+    
+    switch command {
+    case .LIST_DEVICES:
+        return LibIMobileDevice.shared.getDeviceList()
+    case .START_SERVER:
+        if let port = payload as? UInt16 {
+            startServer(port: port)
+        }
+    case .STOP_SERVER:
+        stopServer()
+    case .APPLETV_PAIR:
+        break
+    case .GET_SERVER_STATE:
+        break
+    }
+    return serverState
+}
+
 func listenXpc() {
     xpc_connection_set_event_handler(listener) { peer in
         if xpc_get_type(peer) != XPC_TYPE_CONNECTION {
@@ -9,45 +32,29 @@ func listenXpc() {
         }
         xpc_connection_set_event_handler(peer) { request in
             if xpc_get_type(request) == XPC_TYPE_DICTIONARY {
-                let message = xpc_dictionary_get_string(request, "MessageKey")
-                let command = String(cString: message!)
+                let commandString = xpc_dictionary_get_string(request, "Command")
                 
+                var response = "unknown command: \(String(describing: commandString))"
                 let reply = xpc_dictionary_create_reply(request)
                 
-                var response = "unknown command: \(command)"
-                
-                // TODO: use MessagesEnum istead of strings
-                if command == "listDevices" {
-                    let devices = LibIMobileDevice.shared.getDeviceList()
-                    if let json = json(devices) {
-                        if let data = try? JSONSerialization.data(withJSONObject: json) {
-                            response = String(data: data, encoding: .utf8) ?? "error while calling \(command)"
-                        } else {
-                            response = "error while calling \(command)"
-                        }
-                    } else {
-                        response = "error while calling \(command)"
-                    }
-                }
-                
-                
-                // TODO: use MessagesEnum istead of strings
-                if command == "serverState" {
-                    let serverState = serverState
-                    if let json = json(serverState) {
-                        if let data = try? JSONSerialization.data(withJSONObject: json) {
-                            response = String(data: data, encoding: .utf8) ?? "error while calling \(command)"
-                        } else {
-                            response = "error while calling \(command)"
-                        }
-                    } else {
-                        response = "error while calling \(command)"
-                    }
-                }
-                
+                if let command = Command(rawValue: String(cString: commandString!)) {
+                    
+                    let payloadString = xpc_dictionary_get_string(request, "Payload")
 
-                response.withCString { rawResponse in
-                    xpc_dictionary_set_string(reply!, "ResponseKey", rawResponse)
+                    if let json = json(executeCommand(command, payloadString: (payloadString != nil) ?
+                                                      String(cString: payloadString!) : nil)) {
+                        if let data = try? JSONSerialization.data(withJSONObject: json, options: .fragmentsAllowed) {
+                            response = String(data: data, encoding: .utf8) ?? "error while calling \(command)"
+                        } else {
+                            response = "error while calling \(command)"
+                        }
+                    } else {
+                        response = "error while calling \(command)"
+                    }
+                }
+
+                response.withCString { raw in
+                    xpc_dictionary_set_string(reply!, "Response", raw)
                 }
                 xpc_connection_send_message(peer, reply!)
             }

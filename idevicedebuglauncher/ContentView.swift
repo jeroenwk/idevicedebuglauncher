@@ -2,45 +2,43 @@ import SwiftUI
 import ServiceManagement
 
 struct ContentView: View {
-    // service state
+    // daemon state
     @State private var installed = false
     @State private var notAllowed = false
     
     // server state
     @State private var serverState = ServerState(running: false)
+    
+    // ui
+    @State private var devices: [DeviceInfo] = []
     @State private var port = ""
     
-    @State private var devices: [DeviceInfo] = []
     
-    
-    func stopServer() {
-        
-    }
-    
-    func startServer() {
-        
-    }
-    
-    func updateServerState() {
-        let ret = Commands.send("serverState")
-        if let data = ret.data(using: .utf8) {
-            if let state = try? JSONDecoder().decode(ServerState.self, from: data) {
-                serverState = state
+    func updateServerState(from command: Command, with payload: Codable? = nil) {
+        Commands.send(command, payload: payload) { response in
+            if let state = response as? ServerState {
+                self.serverState = state
                 if let p = serverState.port {
-                    port = String(p)
+                    self.port = String(p)
                 }
             }
         }
     }
     
-    func getDevices() -> [DeviceInfo] {
-        let ret = Commands.send("listDevices")
-        if let data = ret.data(using: .utf8) {
-            if let devices = try? JSONDecoder().decode([DeviceInfo].self, from: data) {
-                return devices
+    func updateDevices() {
+        Commands.send(.LIST_DEVICES) { response in
+            if let devices = response as? [DeviceInfo] {
+                self.devices = devices
             }
         }
-        return []
+    }
+    
+    func stopServer() {
+        updateServerState(from: .STOP_SERVER)
+    }
+    
+    func startServer(port: UInt16?) {
+        updateServerState(from: .START_SERVER, with: port)
     }
     
     var body: some View {
@@ -78,17 +76,13 @@ struct ContentView: View {
                 
                 HStack {
                     Button {
-                        DispatchQueue.global(qos: .userInitiated).async {
-                            serverState.running ? stopServer() : startServer()
-                        }
+                        serverState.running ? stopServer() : startServer(port: UInt16(port))
                     } label: {
                         Text(serverState.running ? "Stop Server" : "Start Server")
                             .padding(20)
                     }
                     Button {
-                        DispatchQueue.global(qos: .userInitiated).async {
-                            devices = getDevices()
-                        }
+                        updateDevices()
                     } label: {
                         Text("Refresh devices")
                             .padding(20)
@@ -127,8 +121,8 @@ struct ContentView: View {
                         SMAppService.openSystemSettingsLoginItems()
                     } else {
                         notAllowed = false
-                        updateServerState()
-                        devices = getDevices()
+                        updateServerState(from: .GET_SERVER_STATE)
+                        updateDevices()
                     }
                 } else {
                     serverState = ServerState(running: false)

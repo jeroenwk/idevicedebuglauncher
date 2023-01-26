@@ -10,10 +10,6 @@ func badRequest(_ err_msg: String) -> HttpResponse {
     return .badRequest(.text(err_msg))
 }
 
-func json(_ data: Codable) -> Any? {
-    return try? JSONSerialization.jsonObject(with: JSONEncoder().encode(data))
-}
-
 func listDevices() -> ((HttpRequest) -> HttpResponse) {
     return { request in
         let devices = lib.getDeviceList()

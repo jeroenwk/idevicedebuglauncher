@@ -34,30 +34,52 @@ class Commands {
         return service.status
     }
     
-    class func send(_ message: String) -> String {
-        let request = xpc_dictionary_create_empty()
-        message.withCString { rawMessage in
-            xpc_dictionary_set_string(request, "MessageKey", rawMessage)
+    class func send(_ command: Command, payload: Codable? = nil, _ completion: @escaping (_ response: Any?)->()) {
+        Task.detached {
+            let request = xpc_dictionary_create_empty()
+            
+            let commandString = command.rawValue
+            commandString.withCString { raw in
+                xpc_dictionary_set_string(request, "Command", raw)
+            }
+            
+            if let payload {
+                guard let json = json(payload) else {
+                    logger.error("Can't encode payload")
+                    return
+                }
+                if let data = try? JSONSerialization.data(withJSONObject: json, options: .fragmentsAllowed) {
+                    if let payloadString = String(data: data, encoding: .utf8) {
+                        payloadString.withCString { raw in
+                            xpc_dictionary_set_string(request, "Payload", raw)
+                        }
+                    }
+                }
+            }
+
+            var error: xpc_rich_error_t? = nil
+            let session = xpc_session_create_mach_service("com.xpc.idevicedebuglauncher.sendcommand", nil, .none, &error)
+            if let error {
+                logger.error("Unable to create xpc_session \(error.description)")
+                return
+            }
+            
+            let reply = xpc_session_send_message_with_reply_sync(session!, request, &error)
+            if let error = error {
+                logger.error("Error sending message \(error.description)")
+                return
+            }
+            
+            let responseData = xpc_dictionary_get_string(reply!, "Response")
+            let encodedResponse = String(cString: responseData!)
+            let response = fromJson(str: encodedResponse, type: command.resultType)
+            
+            xpc_session_cancel(session!)
+            DispatchQueue.main.async {
+                completion(response)
+            }
+            
         }
-
-        var error: xpc_rich_error_t? = nil
-        let session = xpc_session_create_mach_service("com.xpc.idevicedebuglauncher.sendcommand", nil, .none, &error)
-        if let error {
-            logger.error("Unable to create xpc_session \(error.description)")
-            return error.description
-        }
-
-        let reply = xpc_session_send_message_with_reply_sync(session!, request, &error)
-        if let error = error {
-            logger.error("Error sending message \(error.description)")
-            return error.description
-        }
-
-        let response = xpc_dictionary_get_string(reply!, "ResponseKey")
-        let encodedResponse = String(cString: response!)
-
-        xpc_session_cancel(session!)
-        
-        return encodedResponse
     }
+    
 }

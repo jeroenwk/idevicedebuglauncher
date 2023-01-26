@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1205D3522981151100BF36D0 /* compile in Resources */ = {isa = PBXBuildFile; fileRef = 1205D3512981151100BF36D0 /* compile */; };
+		1224722B2981A0CA00A6FD9A /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1224722A2981A0CA00A6FD9A /* json.swift */; };
+		1224722C2981A0CA00A6FD9A /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1224722A2981A0CA00A6FD9A /* json.swift */; };
 		1264761E297FD41A0015A50A /* libcrypto.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF95297C30AC002D960D /* libcrypto.3.dylib */; };
 		1264761F297FD41A0015A50A /* libimobiledevice-1.0.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF97297C30AC002D960D /* libimobiledevice-1.0.6.dylib */; };
 		12647620297FD41A0015A50A /* libimobiledevice-glue-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF96297C30AC002D960D /* libimobiledevice-glue-1.0.0.dylib */; };
@@ -120,6 +122,7 @@
 		1205D3512981151100BF36D0 /* compile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = compile; sourceTree = "<group>"; };
 		12247228298159CD00A6FD9A /* install */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = install; sourceTree = "<group>"; };
 		12247229298159FC00A6FD9A /* run */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = run; sourceTree = "<group>"; };
+		1224722A2981A0CA00A6FD9A /* json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
 		126918CC297E897E0031424C /* xpc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xpc.swift; sourceTree = "<group>"; };
 		126918CE297E982C0031424C /* Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
 		126918D5297ED8540031424C /* installer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = installer; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -217,6 +220,7 @@
 				12FC23312979E39A0065687B /* README.md */,
 				12F467E62979B88200FED23C /* lib */,
 				12F467DF2979B72300FED23C /* include */,
+				1224722A2981A0CA00A6FD9A /* json.swift */,
 				12F467D32979B67800FED23C /* types.swift */,
 				12F467A92979B3EF00FED23C /* idevicedebuglauncher */,
 				12F467BE2979B4B100FED23C /* daemon */,
@@ -441,6 +445,7 @@
 			files = (
 				12F467AD2979B3EF00FED23C /* ContentView.swift in Sources */,
 				126918CF297E982C0031424C /* Commands.swift in Sources */,
+				1224722B2981A0CA00A6FD9A /* json.swift in Sources */,
 				12F467AB2979B3EF00FED23C /* Main.swift in Sources */,
 				126918D0297EB2930031424C /* types.swift in Sources */,
 			);
@@ -461,6 +466,7 @@
 				12F467DE2979B67800FED23C /* lib.swift in Sources */,
 				12F467D52979B67800FED23C /* ideviceinfo.c in Sources */,
 				12F467DC2979B67800FED23C /* routes.swift in Sources */,
+				1224722C2981A0CA00A6FD9A /* json.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
