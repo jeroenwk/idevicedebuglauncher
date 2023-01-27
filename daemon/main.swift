@@ -1,8 +1,7 @@
 import Foundation
-import os.log
 
-let logger = Logger(subsystem: "com.jeroenwk.idevicedebuglauncher.daemon", category: "debugging")
 let config = Config()
+let logger = MultiLogger()
 
 logger.info("starting idevicedebuglauncher daemon ...")
 

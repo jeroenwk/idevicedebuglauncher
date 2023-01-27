@@ -25,7 +25,7 @@ enum DeviceType: CustomStringConvertible, Codable {
     }
 }
 
-struct DeviceInfo: Codable, Identifiable {
+struct DeviceInfo: Codable, Identifiable, Equatable {
     var id: String {
         return deviceId + "-" + deviceType.description
     }

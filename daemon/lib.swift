@@ -45,7 +45,7 @@ class LibIMobileDevice {
 
         var devices: [DeviceInfo] = []
         
-        for n in 0...i-1 {
+        for n in 0..<i {
             guard let dev_list else { return [] }
             guard let info = dev_list[Int(n)] else { return [] }
             guard let deviceId = String(validatingUTF8: info.pointee.udid) else { return [] }
@@ -66,6 +66,7 @@ class LibIMobileDevice {
         
         idevice_device_list_extended_free(dev_list)
         
+        logger.info("getDeviceList: Found \(devices.count) devices")
         return devices
     }
 

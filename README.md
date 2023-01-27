@@ -1,9 +1,11 @@
 # idevicedebuglauncher
-**idevicedebuglauncher** is a simple deamon on macos that can attach a debugger to an application on an iOS/tvOS device.
+**idevicedebuglauncher** is a web service on MacOS that can be used to attach a debugger to a remote application running on an iOS/tvOS device.
 This can be used to activate JIT on emulators running on the Apple TV (Provenance, Dolphinios, ...)
+It uses this library: https://github.com/libimobiledevice/libimobiledevice
 
 ## Quick install
     $ git clone https://github.com/jeroenwk/idevicedebuglauncher.git
+    $ cd idevicedebuglauncher
     $ ./compile && ./install && ./run 
 
 /doc/first_install.png 
@@ -25,20 +27,24 @@ This can be used to activate JIT on emulators running on the Apple TV (Provenanc
 ### Build from command line
 In the root of the project folder run:
 
-      $ xcodebuild clean -scheme idevicedebuglauncher
-      $ xcodebuild -scheme idevicedebuglauncher -configuration Release -derivedDataPath ./build
+    $ xcodebuild clean -scheme idevicedebuglauncher
+    $ xcodebuild -scheme idevicedebuglauncher -configuration Release -derivedDataPath ./build
     
 ## Installing idevicedebuglauncher
 You can just drag and drop or copy the application to the applications folder:
 
-		 $ cp -r ./build/Build/Products/Release/idevicedebuglauncher.app /Applications/
+    $ cp -r ./build/Build/Products/Release/idevicedebuglauncher.app /Applications/
 		 
 Or: use build and use the installer package:
 
-		 $ xcodebuild clean -scheme installer 
-		 $ xcodebuild -scheme installer -configuration Release -derivedDataPath ./build
-		 $ open ./build/Build/Products/Release/
+    $ xcodebuild clean -scheme installer 
+    $ xcodebuild -scheme installer -configuration Release -derivedDataPath ./build
+    $ open ./build/Build/Products/Release/
 And double click 'idevicedebuglauncher.pkg'
+
+## Test with curl
+    $ curl http://localhost:8383/idevice_id -w "\n\n\n"
+    $ curl http://localhost:8383/idevicedebug\?bundleId=com.jeroenwk.provenance -w "\n\n\n"
 
 ---
 
@@ -62,15 +68,12 @@ This step is optional because the repository includes already precompiled binari
 ### Steps
 Make sure you have the automake tools installed.
 
-		$ brew install pkg-config autoconf automake libtool
+    $ brew install pkg-config autoconf automake libtool
 Run the script 'install_libs.sh' inside its own directory.
 
-		$ ./install_libs.sh
+    $ cd lib
+    $ ./install_libs.sh
 
-
-### Tests with curl
-		$ curl http://localhost:8383/idevice_id -w "\n\n\n"
-		$ curl http://localhost:8383/idevicedebug\?bundleId=com.jeroenwk.provenance -w "\n\n\n"
 
 ## Apple TV pairing
 This is not implemented yet from the app yet!
@@ -83,4 +86,8 @@ This is not implemented yet from the app yet!
     $ idevicedebug -n -u {device_id} run {bundle_id}
 
 ## Deamon configuration
-The configuration is stored in /System/Volumes/Data/private/var/root/Library/Application\ Support/com.jeroenwk.idevicedebuglauncher/config.plist
+The configuration is stored in:
+/System/Volumes/Data/private/var/root/Library/Application\ Support/com.jeroenwk.idevicedebuglauncher/config.plist
+
+The log file is stored in:
+/usr/local/var/log/idevicedebuglauncher.log
