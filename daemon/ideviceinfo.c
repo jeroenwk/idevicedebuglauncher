@@ -23,7 +23,6 @@ int device_has_mac_address(const char *udid, const char *mac_address)
     int simple = 0;
 
     const char *key = NULL;
-    uint32_t xml_length;
     plist_t node = NULL;
 
 
@@ -68,8 +67,6 @@ int device_has_mac_address(const char *udid, const char *mac_address)
             if (mac_value && !strcmp(mac_value, mac_address)) {
                 return 1;
             }
-            
-            
             
             if (mac_value) {
                 free(mac_value);

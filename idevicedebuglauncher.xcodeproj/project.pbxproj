@@ -32,6 +32,7 @@
 		1290BFA1297C30AC002D960D /* libusbmuxd-2.0.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF98297C30AC002D960D /* libusbmuxd-2.0.6.dylib */; };
 		1290BFA3297C30AC002D960D /* libplist-2.0.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF99297C30AC002D960D /* libplist-2.0.3.dylib */; };
 		1290BFA5297C30AC002D960D /* libssl.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF9A297C30AC002D960D /* libssl.3.dylib */; };
+		12A68D372983B5A60097B164 /* pair.c in Sources */ = {isa = PBXBuildFile; fileRef = 12A68D362983B5A60097B164 /* pair.c */; };
 		12D7B16D2979C04600593124 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D7B16C2979C04600593124 /* main.swift */; };
 		12E5BDD2297EF16A009B5BE2 /* libcrypto.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF95297C30AC002D960D /* libcrypto.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		12E5BDD4297EF16C009B5BE2 /* libimobiledevice-1.0.6.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF97297C30AC002D960D /* libimobiledevice-1.0.6.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -135,6 +136,7 @@
 		1290BF98297C30AC002D960D /* libusbmuxd-2.0.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libusbmuxd-2.0.6.dylib"; path = "lib/universal/libusbmuxd-2.0.6.dylib"; sourceTree = "<group>"; };
 		1290BF99297C30AC002D960D /* libplist-2.0.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libplist-2.0.3.dylib"; path = "lib/universal/libplist-2.0.3.dylib"; sourceTree = "<group>"; };
 		1290BF9A297C30AC002D960D /* libssl.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libssl.3.dylib; path = lib/universal/libssl.3.dylib; sourceTree = "<group>"; };
+		12A68D362983B5A60097B164 /* pair.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = pair.c; sourceTree = "<group>"; };
 		12D7B16C2979C04600593124 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		12E5BDCF297EEDB2009B5BE2 /* postinstall.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = postinstall.sh; sourceTree = "<group>"; };
 		12E5BDD0297EEDBD009B5BE2 /* generate_pkg.zsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = generate_pkg.zsh; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				12F467CC2979B67800FED23C /* address.m */,
 				12F467CB2979B67800FED23C /* arp.m */,
 				12F467CF2979B67800FED23C /* idevicedebug.c */,
+				12A68D362983B5A60097B164 /* pair.c */,
 				12F467CA2979B67800FED23C /* ideviceinfo.c */,
 				12F467C42979B4B900FED23C /* daemon.entitlements */,
 			);
@@ -469,6 +472,7 @@
 				12F467DB2979B67800FED23C /* server.swift in Sources */,
 				12F467DD2979B67800FED23C /* types.swift in Sources */,
 				12849CF329827A0E00771E4B /* config.swift in Sources */,
+				12A68D372983B5A60097B164 /* pair.c in Sources */,
 				126918CD297E897E0031424C /* xpc.swift in Sources */,
 				12D7B16D2979C04600593124 /* main.swift in Sources */,
 				12F467DE2979B67800FED23C /* lib.swift in Sources */,
