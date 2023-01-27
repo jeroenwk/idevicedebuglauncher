@@ -36,6 +36,7 @@ struct ContentView: View {
         }
         
         if self.serviceState == .enabled {
+            updateServerState(from: .GET_SERVER_STATE)
             installRequested = true
         }
     }
