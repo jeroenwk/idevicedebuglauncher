@@ -15,11 +15,10 @@ guard let defaultServerPort = UInt16(CommandLine.arguments[1]) else {
     exit(1)
 }
 
-logger.info("initializing libimobiledevice ...")
-let lib = LibIMobileDevice.shared
-lib.setDebugLevel(level: 1)
+//lib.setDebugLevel(level: 1)
 
 logger.info("start listening to xpc commands ...")
+
 listenXpc()
 
 logger.info("try to load port from config ...")

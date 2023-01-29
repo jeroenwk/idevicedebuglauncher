@@ -12,6 +12,7 @@ func badRequest(_ err_msg: String) -> HttpResponse {
 
 func listDevices() -> ((HttpRequest) -> HttpResponse) {
     return { request in
+        let lib = LibIMobileDevice()
         let devices = lib.getDeviceList()
         guard let json = json(devices) else {
             return badRequest("Cannot convert device list to json!")
@@ -28,6 +29,8 @@ func connectDebugger() -> ((HttpRequest) -> HttpResponse) {
         guard let ipAddress = request.address else {
             return badRequest("Can't get ip address from caller")
         }
+        
+        let lib = LibIMobileDevice()
         
         let udid = queryParams.first(where: {
             $0.0 == "udid"

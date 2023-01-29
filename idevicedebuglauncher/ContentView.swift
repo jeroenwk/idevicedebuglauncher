@@ -10,6 +10,7 @@ struct ContentView: View {
     @State private var devices: [DeviceInfo] = []
     @State private var port = ""
     @State private var isPairing = false
+    @State private var pairingStatus = "unknown"
     @ObservedObject private var code = OTPModel()
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -19,8 +20,23 @@ struct ContentView: View {
         updateServiceState()
     }
     
-    func validateCode() {
-        
+    func pairAppleTV() {
+        isPairing = true
+        Commands.send(.APPLETV_PAIR) { response in
+            if let errorCode = response as? ErrorCode {
+                if errorCode.code > 0 {
+                    pairingStatus = "AppleTV not paired!"
+                } else {
+                    pairingStatus = "AppleTV paired"
+                }
+                isPairing = false
+            }
+        }
+    }
+    
+    func setPinCode(_ code: String) {
+        Commands.send(.SET_PIN, payload: code) { response in
+        }
     }
     
     func updateServiceState() {
@@ -58,15 +74,6 @@ struct ContentView: View {
         Commands.send(.LIST_DEVICES) { response in
             if let devices = response as? [DeviceInfo] {
                 self.devices = devices
-            }
-        }
-    }
-    
-    func pairAppleTV() {
-        isPairing = true
-        Commands.send(.APPLETV_PAIR) { response in
-            if let errorCode = response as? ErrorCode {
-                print(errorCode)
             }
         }
     }
@@ -109,6 +116,10 @@ struct ContentView: View {
                     if serverState.running {
                         Link("http://localhost:\(port)/idevice_id/", destination: URL(string: "http://localhost:\(port)/idevice_id/")!)
                     }
+                }
+                
+                if pairingStatus != "unknown" {
+                    Text(pairingStatus)
                 }
                 
                 Divider()
@@ -161,6 +172,7 @@ struct ContentView: View {
             if value.count == 6 {
                 isPairing = false
                 code.clear()
+                setPinCode(value)
             }
         }
         .onReceive(timer) { time in

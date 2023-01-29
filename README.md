@@ -15,6 +15,7 @@ It uses this library: https://github.com/libimobiledevice/libimobiledevice
 - allow to idevicedebuglauncher in the background within the login items preference (only the first time)
 - once activate the list of devices is refreshed
 - browse to http://localhost:8383/idevice_id by clicking on the link and check for the devices found
+- use the button to pair the AppleTV
 - closing the app will leave the background process running as system daemon
 
 ---
@@ -73,12 +74,6 @@ Run the script 'install_libs.sh' inside its own directory.
 
     $ cd lib
     $ ./install_libs.sh
-
-
-## Apple TV pairing
-This is not implemented yet from the app yet!
-
-    $ idevicepair -w pair
 
 ## Debugging a remote application
 This is not implemented yet from the app yet!

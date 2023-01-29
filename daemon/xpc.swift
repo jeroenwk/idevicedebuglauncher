@@ -1,6 +1,7 @@
 import Foundation
 
 let listener = xpc_connection_create_mach_service("com.xpc.idevicedebuglauncher.sendcommand", nil, UInt64(XPC_CONNECTION_MACH_SERVICE_LISTENER))
+let lib = LibIMobileDevice()
 
 func executeCommand(_ command: Command, payloadString: String? = nil) -> Codable {
     var payload: Any?
@@ -10,7 +11,7 @@ func executeCommand(_ command: Command, payloadString: String? = nil) -> Codable
     
     switch command {
     case .LIST_DEVICES:
-        return LibIMobileDevice.shared.getDeviceList()
+        return lib.getDeviceList()
     case .START_SERVER:
         if let port = payload as? UInt16 {
             startServer(port: port)
@@ -18,9 +19,14 @@ func executeCommand(_ command: Command, payloadString: String? = nil) -> Codable
     case .STOP_SERVER:
         stopServer()
     case .APPLETV_PAIR:
-        break
+        return lib.pairAppleTV()
     case .GET_SERVER_STATE:
         break
+    case .SET_PIN:
+        if let pincode = payload as? String {
+            lib.pairingInfo.pin = pincode
+        }
+        return ErrorCode(code: 0)
     }
     return serverState
 }

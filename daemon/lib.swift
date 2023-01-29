@@ -1,7 +1,56 @@
 import Foundation
 
 class LibIMobileDevice {
-    static let shared = LibIMobileDevice()
+    
+    typealias Callback = @convention(c) (
+        UnsafeMutableRawPointer?,
+        UnsafeMutablePointer<Int8>?,
+        UnsafeMutablePointer<UInt32>?
+    ) -> Void
+        
+    var pairingInfo = PairingInfo()
+    
+    func pairAppleTV() -> ErrorCode {
+        self.pairingInfo = PairingInfo()
+        
+        let context = Unmanaged.passUnretained(self).toOpaque()
+        
+        let callback: Callback =  { context, pin, size in
+            guard let context else {
+                logger.error("no context to set pincode")
+                return
+            }
+            let lib = Unmanaged<LibIMobileDevice>.fromOpaque(context).takeUnretainedValue()
+            
+            for n in 0..<PAIRING_TIMEOUT_SECONDS {
+                if lib.pairingInfo.pin.count == PINCODE_SIZE {
+                    break
+                }
+                sleep(1)
+                if n == 29 {
+                    lib.pairingInfo.errorCode = ErrorCode(code: 1, error: "timed out waiting for pincode")
+                    return
+                }
+            }
+            
+            let bytes:[Int8] = lib.pairingInfo.pin.utf8.map{Int8(bitPattern: $0)}
+            let a = UnsafeMutableBufferPointer(start: pin, count: bytes.count)
+            for i in 0..<bytes.count {
+                a[i] = bytes[i]
+            }
+            size?.pointee = UInt32(PINCODE_SIZE)
+        }
+        
+        let err = pair(context, callback)
+        if err > 0 {
+            if pairingInfo.errorCode.code > 0 {
+                return pairingInfo.errorCode
+            }
+            return ErrorCode(code:Int(err), error: "pairing failed")
+        } else {
+            return ErrorCode(code: 0)
+        }
+    }
     
     func udidFromIpAddress(ipAddress : String) -> String? {
         guard let mac = ARP.walkMACAddress(of: ipAddress) else {

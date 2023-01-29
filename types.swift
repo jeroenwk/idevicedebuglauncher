@@ -1,6 +1,10 @@
 import Foundation
 
 typealias PortNumber = UInt16
+typealias PinCode = String
+
+public let PINCODE_SIZE = 6
+public let PAIRING_TIMEOUT_SECONDS = 60
 
 enum DeviceType: CustomStringConvertible, Codable {
     case usb
@@ -33,14 +37,25 @@ struct DeviceInfo: Codable, Identifiable, Equatable {
     var deviceType: DeviceType
 }
 
+struct PairingInfo {
+    var pin = ""
+    var errorCode = ErrorCode(code: 0)
+}
+
 struct ServerState: Codable {
     var running: Bool
     var port: UInt16?
 }
 
 struct ErrorCode: Codable {
-    var code: UInt16
-    var error: String?
+    var code: Int
+    var error: String? {
+        didSet {
+            if let error {
+                logger.error("Error: \(error)")
+            }
+        }
+    }
 }
 
 enum Command: String {
@@ -49,12 +64,15 @@ enum Command: String {
     case STOP_SERVER = "stopServer"
     case GET_SERVER_STATE = "serverState"
     case APPLETV_PAIR = "appleTVPair"
+    case SET_PIN = "setPinCode"
     
     var resultType: Decodable.Type {
         switch self {
         case .LIST_DEVICES:
             return [DeviceInfo].self
         case .APPLETV_PAIR:
+            return ErrorCode.self
+        case .SET_PIN:
             return ErrorCode.self
         case .START_SERVER:
             break
@@ -78,6 +96,8 @@ enum Command: String {
             break
         case .APPLETV_PAIR:
             break
+        case .SET_PIN:
+            return PinCode.self
         }
         return nil
     }

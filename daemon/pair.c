@@ -14,16 +14,22 @@
 #include "../include/lockdown.h"
 #include "../include/idevicedebuglauncher.h"
 
+
+void* context;
+pin_cb_t callback;
+
 static void pairing_cb(lockdownd_cu_pairing_cb_type_t cb_type, void *user_data, void* data_ptr, unsigned int* data_size)
 {
     if (cb_type == LOCKDOWN_CU_PAIRING_PIN_REQUESTED) {
-        printf("Enter PIN\n");
+
+        callback(context, data_ptr, data_size);
+        
     } else if (cb_type == LOCKDOWN_CU_PAIRING_ERROR) {
         printf("ERROR: %s\n", (data_ptr) ? (char*)data_ptr : "(unknown)");
     }
 }
 
-int pair(void)
+int pair(void* ctx, pin_cb_t cb)
 {
     lockdownd_client_t client = NULL;
     idevice_t device = NULL;
@@ -34,7 +40,10 @@ int pair(void)
     plist_t host_info_plist = NULL;
     char *udid = NULL;
     
-    ret = idevice_new_with_options(&device, udid, IDEVICE_LOOKUP_USBMUX);
+    context = ctx;
+    callback = cb;
+    
+    ret = idevice_new_with_options(&device, udid, IDEVICE_LOOKUP_NETWORK);
     if (ret != IDEVICE_E_SUCCESS) {
         if (udid) {
             printf("No device found with udid %s.\n", udid);
@@ -90,90 +99,9 @@ leave:
     lockdownd_client_free(client);
     idevice_free(device);
     free(udid);
+    //free(context);
 
     return result;
 }
 
-int unpair(void)
-{
-    lockdownd_client_t client = NULL;
-    idevice_t device = NULL;
-    idevice_error_t ret = IDEVICE_E_UNKNOWN_ERROR;
-    lockdownd_error_t lerr;
-    int result;
-    char *type = NULL;
-    plist_t host_info_plist = NULL;
-    char *udid = NULL;
-    
-    lerr = lockdownd_client_new(device, &client, TOOL_NAME);
-    if (lerr != LOCKDOWN_E_SUCCESS) {
-        printf("ERROR: Could not connect to lockdownd, error code %d\n", lerr);
-        result = EXIT_FAILURE;
-        goto leave;
-    }
-    
-    result = EXIT_SUCCESS;
-    
-leave:
-    lockdownd_client_free(client);
-    idevice_free(device);
-    free(udid);
 
-    return result;
-}
-
-int list(void)
-{
-    lockdownd_client_t client = NULL;
-    idevice_t device = NULL;
-    idevice_error_t ret = IDEVICE_E_UNKNOWN_ERROR;
-    lockdownd_error_t lerr;
-    int result;
-    char *type = NULL;
-    plist_t host_info_plist = NULL;
-    char *udid = NULL;
-    
-    lerr = lockdownd_client_new(device, &client, TOOL_NAME);
-    if (lerr != LOCKDOWN_E_SUCCESS) {
-        printf("ERROR: Could not connect to lockdownd, error code %d\n", lerr);
-        result = EXIT_FAILURE;
-        goto leave;
-    }
-    
-    result = EXIT_SUCCESS;
-    
-leave:
-    lockdownd_client_free(client);
-    idevice_free(device);
-    free(udid);
-
-    return result;
-}
-
-int systembuid(void)
-{
-    lockdownd_client_t client = NULL;
-    idevice_t device = NULL;
-    idevice_error_t ret = IDEVICE_E_UNKNOWN_ERROR;
-    lockdownd_error_t lerr;
-    int result;
-    char *type = NULL;
-    plist_t host_info_plist = NULL;
-    char *udid = NULL;
-    
-    lerr = lockdownd_client_new(device, &client, TOOL_NAME);
-    if (lerr != LOCKDOWN_E_SUCCESS) {
-        printf("ERROR: Could not connect to lockdownd, error code %d\n", lerr);
-        result = EXIT_FAILURE;
-        goto leave;
-    }
-    
-    result = EXIT_SUCCESS;
-    
-leave:
-    lockdownd_client_free(client);
-    idevice_free(device);
-    free(udid);
-
-    return result;
-}
