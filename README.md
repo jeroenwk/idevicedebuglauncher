@@ -8,7 +8,7 @@ It uses this library: https://github.com/libimobiledevice/libimobiledevice
     $ cd idevicedebuglauncher
     $ ./compile && ./install && ./run 
 
-/doc/first_install.png 
+![](/doc/app.png) 
 
 ## Run idevicedebuglauncher
 - activate the 'Install as system service' switch
