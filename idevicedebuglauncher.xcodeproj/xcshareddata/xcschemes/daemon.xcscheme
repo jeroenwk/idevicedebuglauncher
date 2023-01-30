@@ -53,7 +53,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "8080"
+            argument = "8088"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

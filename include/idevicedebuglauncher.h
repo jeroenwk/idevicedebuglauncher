@@ -7,6 +7,7 @@ typedef void (*pin_cb_t) (void *context, char* data_ptr, unsigned int* data_size
 
 int start_server(int argc, char** argv);
 int device_has_mac_address(const char *udid, const char *mac_address);
+int device_info(const char *udid, const char *field, char **value);
 int pair(void* context, pin_cb_t callback);
 
 int callbackTest(void* context, pin_cb_t callback);

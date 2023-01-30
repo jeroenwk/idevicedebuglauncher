@@ -146,9 +146,19 @@ struct ContentView: View {
                 }
                 
                 if isPairing {
-                    VStack(alignment: .leading) {
-                        Text("Navigate to Settings > Remotes and Devices > Remote App and Devices on your AppleTV and enter the code shown below")
+                    VStack(alignment: .center) {
+                        Image(systemName: "appletv.fill")
+                            .font(.system(size: 50))
+                        
                         OTPView(viewModel: code)
+                            .padding()
+                        Text("Navigate to Settings > Remotes and Devices > Remote App and Devices on your AppleTV and enter the code shown below")
+                        Button {
+                            isPairing = false
+                        } label: {
+                            Text("Undo pairing")
+                                .padding(20)
+                        }
                     }
                         .frame(maxHeight: .infinity)
                 } else {
@@ -157,8 +167,16 @@ struct ContentView: View {
                     
                     Table(devices) {
                         TableColumn("Id", value: \.deviceId)
+                        TableColumn("Model") { device in
+                            if let info = device.extraInfo,
+                               let model = info["DeviceClass"] {
+                                Label(model, systemImage: model.lowercased())
+                            }
+                        }
                         TableColumn("Type") { device in
-                            Label(device.deviceType.description, systemImage: device.deviceType.icon)
+                            if let deviceType = device.deviceType {
+                                Label(deviceType.description, systemImage: deviceType.icon)
+                            }
                         }
                     }
                 }

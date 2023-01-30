@@ -15,8 +15,6 @@ guard let defaultServerPort = UInt16(CommandLine.arguments[1]) else {
     exit(1)
 }
 
-//lib.setDebugLevel(level: 1)
-
 logger.info("start listening to xpc commands ...")
 
 listenXpc()

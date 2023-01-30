@@ -12,6 +12,10 @@ func executeCommand(_ command: Command, payloadString: String? = nil) -> Codable
     switch command {
     case .LIST_DEVICES:
         return lib.getDeviceList()
+    case .GET_DEVICE_INFO:
+        if let request = payload as? DeviceInfoRequest {
+            return lib.deviceInfo(for: request.udid, with: request.fields)
+        }
     case .START_SERVER:
         if let port = payload as? UInt16 {
             startServer(port: port)
@@ -32,6 +36,8 @@ func executeCommand(_ command: Command, payloadString: String? = nil) -> Codable
 }
 
 func listenXpc() {
+    lib.setDebugLevel(level: 1)
+    
     xpc_connection_set_event_handler(listener) { peer in
         if xpc_get_type(peer) != XPC_TYPE_CONNECTION {
             return

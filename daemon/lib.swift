@@ -52,6 +52,24 @@ class LibIMobileDevice {
         }
     }
     
+    func deviceInfo(for udid: String, with fields: [String]) -> DeviceInfo? {
+        var extraInfo: [String: String] = [:]
+        
+        for field in fields {
+            var value: UnsafeMutablePointer<Int8>? = nil
+            
+            let f = field.cString(using: .ascii)
+            if device_info(udid.toUnsafePointer(), f, &value) == 0 {
+                let v = value.map({ String(cString: UnsafeRawPointer($0).assumingMemoryBound(to: UInt8.self)) }) ?? ""
+                extraInfo[field] = v
+            } else {
+                logger.error("Can't get information '\(field)' for device with udid \(udid)")
+            }
+        }
+        
+        return DeviceInfo(deviceId: udid, extraInfo: extraInfo)
+    }
+    
     func udidFromIpAddress(ipAddress : String) -> String? {
         guard let mac = ARP.walkMACAddress(of: ipAddress) else {
             logger.error("Unable to retrieve MAC from \(ipAddress)")
@@ -62,9 +80,11 @@ class LibIMobileDevice {
         for device in devices {
             let udid = device.deviceId
             if device_has_mac_address(udid.toUnsafePointer(), mac.toUnsafePointer()) != 0 {
+                logger.info("Device \(udid) with MAC: \(mac) found at ip address \(ipAddress)")
                 return udid
             }
         }
+        logger.error("Unable to find device with MAC: \(mac)")
         return nil
     }
 
@@ -82,10 +102,10 @@ class LibIMobileDevice {
     }
 
     func getDeviceList() -> [DeviceInfo] {
-        var i:Int32 = 0
+        var i: Int32 = 0
         var dev_list: UnsafeMutablePointer<idevice_info_t?>? = UnsafeMutablePointer<idevice_info_t?>.allocate(capacity: 0)
 
-        let result:idevice_error_t = idevice_get_device_list_extended(&dev_list, &i)
+        let result: idevice_error_t = idevice_get_device_list_extended(&dev_list, &i)
         
         guard result.rawValue == 0 else {
             logger.error("Unable to retrieve device list!")
@@ -106,10 +126,13 @@ class LibIMobileDevice {
                 deviceInfo = DeviceInfo(deviceId: deviceId, deviceType: .usb)
             } else {
                 deviceInfo = DeviceInfo(deviceId: deviceId, deviceType: .network)
-                
             }
+            
+            let extra = self.deviceInfo(for: deviceId, with: ["DeviceClass"])
+            deviceInfo.extraInfo = extra?.extraInfo
+            
             devices.append(deviceInfo)
-            logger.info("\(deviceInfo.deviceId) (\(deviceInfo.deviceType.description)")
+            logger.info("\(deviceInfo.deviceId) (\(deviceInfo.deviceType?.description ?? "")")
             
         }
         

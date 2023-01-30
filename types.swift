@@ -2,6 +2,7 @@ import Foundation
 
 typealias PortNumber = UInt16
 typealias PinCode = String
+typealias UDid = String
 
 public let PINCODE_SIZE = 6
 public let PAIRING_TIMEOUT_SECONDS = 60
@@ -31,10 +32,16 @@ enum DeviceType: CustomStringConvertible, Codable {
 
 struct DeviceInfo: Codable, Identifiable, Equatable {
     var id: String {
-        return deviceId + "-" + deviceType.description
+        return deviceId + "-" + (deviceType?.description ?? "")
     }
     var deviceId: String
-    var deviceType: DeviceType
+    var deviceType: DeviceType?
+    var extraInfo: [String:String]?
+}
+
+struct DeviceInfoRequest: Codable, Equatable {
+    var udid: String
+    var fields: [String]
 }
 
 struct PairingInfo {
@@ -60,6 +67,7 @@ struct ErrorCode: Codable {
 
 enum Command: String {
     case LIST_DEVICES = "listDevices"
+    case GET_DEVICE_INFO = "deviceInfo"
     case START_SERVER = "startServer"
     case STOP_SERVER = "stopServer"
     case GET_SERVER_STATE = "serverState"
@@ -70,6 +78,8 @@ enum Command: String {
         switch self {
         case .LIST_DEVICES:
             return [DeviceInfo].self
+        case .GET_DEVICE_INFO:
+            return DeviceInfo.self
         case .APPLETV_PAIR:
             return ErrorCode.self
         case .SET_PIN:
@@ -90,6 +100,8 @@ enum Command: String {
             return PortNumber.self
         case .LIST_DEVICES:
             break
+        case .GET_DEVICE_INFO:
+            return UDid.self
         case .STOP_SERVER:
             break
         case .GET_SERVER_STATE:

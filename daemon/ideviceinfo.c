@@ -82,3 +82,51 @@ int device_has_mac_address(const char *udid, const char *mac_address)
 
     return 0;
 }
+
+int device_info(const char *udid, const char *field, char **value)
+{
+    lockdownd_client_t client = NULL;
+    lockdownd_error_t ldret = LOCKDOWN_E_UNKNOWN_ERROR;
+    idevice_t device = NULL;
+    idevice_error_t ret = IDEVICE_E_UNKNOWN_ERROR;
+    int simple = 0;
+
+    plist_t node = NULL;
+
+    ret = idevice_new_with_options(&device, udid, IDEVICE_LOOKUP_NETWORK);
+    if (ret != IDEVICE_E_SUCCESS) {
+        if (udid) {
+            fprintf(stderr, "ERROR: Device %s not found!\n", udid);
+        } else {
+            fprintf(stderr, "ERROR: No device found!\n");
+        }
+        return -1;
+    }
+
+    if (LOCKDOWN_E_SUCCESS != (ldret = simple ?
+            lockdownd_client_new(device, &client, TOOL_NAME):
+            lockdownd_client_new_with_handshake(device, &client, TOOL_NAME))) {
+        fprintf(stderr, "ERROR: Could not connect to lockdownd: %s (%d)\n", lockdownd_strerror(ldret), ldret);
+        idevice_free(device);
+        return -1;
+    }
+
+    /* run query and output information */
+    if(lockdownd_get_value(client, NULL, NULL, &node) == LOCKDOWN_E_SUCCESS) {
+        if (node) {
+        
+            plist_t n = plist_dict_get_item(node, field);
+            if (plist_get_node_type(n) == PLIST_STRING) {
+                plist_get_string_val(n, value);
+            }
+            
+            plist_free(node);
+            node = NULL;
+        }
+    }
+
+    lockdownd_client_free(client);
+    idevice_free(device);
+
+    return 0;
+}
