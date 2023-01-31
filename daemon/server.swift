@@ -6,7 +6,7 @@ var serverState = ServerState(running: false)
 
 func startServer(port: UInt16) {
     server["/idevice_id"] = listDevices()
-    server["/idevicedebug"] = connectDebugger()
+    server["/idevicedebug"] = attachDebugger()
     
     serverState.port = port
     do {

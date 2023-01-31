@@ -44,6 +44,11 @@ struct DeviceInfoRequest: Codable, Equatable {
     var fields: [String]
 }
 
+struct DebugRequest: Codable, Equatable {
+    var udid: String
+    var bundleId: String
+}
+
 struct PairingInfo {
     var pin = ""
     var errorCode = ErrorCode(code: 0)
@@ -56,13 +61,7 @@ struct ServerState: Codable {
 
 struct ErrorCode: Codable {
     var code: Int
-    var error: String? {
-        didSet {
-            if let error {
-                logger.error("Error: \(error)")
-            }
-        }
-    }
+    var error: String?
 }
 
 enum Command: String {
@@ -73,6 +72,7 @@ enum Command: String {
     case GET_SERVER_STATE = "serverState"
     case APPLETV_PAIR = "appleTVPair"
     case SET_PIN = "setPinCode"
+    case ATTACH_DEBUGGER = "connectDebugger"
     
     var resultType: Decodable.Type {
         switch self {
@@ -83,6 +83,8 @@ enum Command: String {
         case .APPLETV_PAIR:
             return ErrorCode.self
         case .SET_PIN:
+            return ErrorCode.self
+        case .ATTACH_DEBUGGER:
             return ErrorCode.self
         case .START_SERVER:
             break
@@ -101,7 +103,7 @@ enum Command: String {
         case .LIST_DEVICES:
             break
         case .GET_DEVICE_INFO:
-            return UDid.self
+            return DeviceInfoRequest.self
         case .STOP_SERVER:
             break
         case .GET_SERVER_STATE:
@@ -110,6 +112,8 @@ enum Command: String {
             break
         case .SET_PIN:
             return PinCode.self
+        case .ATTACH_DEBUGGER:
+            return DebugRequest.self
         }
         return nil
     }

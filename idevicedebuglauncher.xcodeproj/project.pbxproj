@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1205D3522981151100BF36D0 /* compile in Resources */ = {isa = PBXBuildFile; fileRef = 1205D3512981151100BF36D0 /* compile */; };
+		12100C4E29896148002D3A4E /* idevicedebuglauncherlib in Frameworks */ = {isa = PBXBuildFile; productRef = 12100C4D29896148002D3A4E /* idevicedebuglauncherlib */; };
 		1224722B2981A0CA00A6FD9A /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1224722A2981A0CA00A6FD9A /* json.swift */; };
 		1224722C2981A0CA00A6FD9A /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1224722A2981A0CA00A6FD9A /* json.swift */; };
 		1264761E297FD41A0015A50A /* libcrypto.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF95297C30AC002D960D /* libcrypto.3.dylib */; };
@@ -25,6 +26,10 @@
 		126918CD297E897E0031424C /* xpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126918CC297E897E0031424C /* xpc.swift */; };
 		126918CF297E982C0031424C /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126918CE297E982C0031424C /* Commands.swift */; };
 		126918D0297EB2930031424C /* types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F467D32979B67800FED23C /* types.swift */; };
+		12724BF52988F8F60069900B /* app.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12724BF42988F8F60069900B /* app.swift */; };
+		12724BF72988F8F60069900B /* content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12724BF62988F8F60069900B /* content.swift */; };
+		12724BF92988F8F70069900B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12724BF82988F8F70069900B /* Assets.xcassets */; };
+		12724BFC2988F8F70069900B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12724BFB2988F8F70069900B /* Preview Assets.xcassets */; };
 		12849CF329827A0E00771E4B /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12849CF229827A0E00771E4B /* config.swift */; };
 		1290BF9B297C30AC002D960D /* libcrypto.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF95297C30AC002D960D /* libcrypto.3.dylib */; };
 		1290BF9D297C30AC002D960D /* libimobiledevice-glue-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF96297C30AC002D960D /* libimobiledevice-glue-1.0.0.dylib */; };
@@ -94,6 +99,16 @@
 			name = "Embed Libraries";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		12724C14298901230069900B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		12E5BDD3297EF16A009B5BE2 /* Embed Libraries */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -124,12 +139,19 @@
 
 /* Begin PBXFileReference section */
 		1205D3512981151100BF36D0 /* compile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = compile; sourceTree = "<group>"; };
+		12100C4229892BF9002D3A4E /* idevicedebuglauncherlib */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = idevicedebuglauncherlib; sourceTree = "<group>"; };
 		12247228298159CD00A6FD9A /* install */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = install; sourceTree = "<group>"; };
 		12247229298159FC00A6FD9A /* run */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = run; sourceTree = "<group>"; };
 		1224722A2981A0CA00A6FD9A /* json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
 		126918CC297E897E0031424C /* xpc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xpc.swift; sourceTree = "<group>"; };
 		126918CE297E982C0031424C /* Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
 		126918D5297ED8540031424C /* installer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = installer; sourceTree = BUILT_PRODUCTS_DIR; };
+		12724BF22988F8F60069900B /* sampleapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sampleapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		12724BF42988F8F60069900B /* app.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = app.swift; sourceTree = "<group>"; };
+		12724BF62988F8F60069900B /* content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = content.swift; sourceTree = "<group>"; };
+		12724BF82988F8F70069900B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		12724BFB2988F8F70069900B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		12724C17298906C60069900B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		12849CF229827A0E00771E4B /* config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
 		1290BF95297C30AC002D960D /* libcrypto.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.3.dylib; path = lib/universal/libcrypto.3.dylib; sourceTree = "<group>"; };
 		1290BF96297C30AC002D960D /* libimobiledevice-glue-1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libimobiledevice-glue-1.0.0.dylib"; path = "lib/universal/libimobiledevice-glue-1.0.0.dylib"; sourceTree = "<group>"; };
@@ -170,6 +192,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		12724BEF2988F8F60069900B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12100C4E29896148002D3A4E /* idevicedebuglauncherlib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		12F467A42979B3EF00FED23C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -219,6 +249,26 @@
 			path = installer;
 			sourceTree = "<group>";
 		};
+		12724BF32988F8F60069900B /* sampleapp */ = {
+			isa = PBXGroup;
+			children = (
+				12724C17298906C60069900B /* Info.plist */,
+				12724BF42988F8F60069900B /* app.swift */,
+				12724BF62988F8F60069900B /* content.swift */,
+				12724BF82988F8F70069900B /* Assets.xcassets */,
+				12724BFA2988F8F70069900B /* Preview Content */,
+			);
+			path = sampleapp;
+			sourceTree = "<group>";
+		};
+		12724BFA2988F8F70069900B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				12724BFB2988F8F70069900B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		12F4679E2979B3EF00FED23C = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +283,8 @@
 				12F467A92979B3EF00FED23C /* idevicedebuglauncher */,
 				12F467BE2979B4B100FED23C /* daemon */,
 				126918D6297ED8540031424C /* installer */,
+				12724BF32988F8F60069900B /* sampleapp */,
+				12100C4229892BF9002D3A4E /* idevicedebuglauncherlib */,
 				12F467A82979B3EF00FED23C /* Products */,
 				12F467E32979B81900FED23C /* Frameworks */,
 			);
@@ -244,6 +296,7 @@
 				12F467A72979B3EF00FED23C /* idevicedebuglauncher.app */,
 				12F467BD2979B4B100FED23C /* daemon */,
 				126918D5297ED8540031424C /* installer */,
+				12724BF22988F8F60069900B /* sampleapp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -325,6 +378,27 @@
 			productReference = 126918D5297ED8540031424C /* installer */;
 			productType = "com.apple.product-type.tool";
 		};
+		12724BF12988F8F60069900B /* sampleapp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12724BFF2988F8F70069900B /* Build configuration list for PBXNativeTarget "sampleapp" */;
+			buildPhases = (
+				12724BEE2988F8F60069900B /* Sources */,
+				12724BEF2988F8F60069900B /* Frameworks */,
+				12724BF02988F8F60069900B /* Resources */,
+				12724C14298901230069900B /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = sampleapp;
+			packageProductDependencies = (
+				12100C4D29896148002D3A4E /* idevicedebuglauncherlib */,
+			);
+			productName = sampleapp;
+			productReference = 12724BF22988F8F60069900B /* sampleapp.app */;
+			productType = "com.apple.product-type.application";
+		};
 		12F467A62979B3EF00FED23C /* idevicedebuglauncher */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 12F467B62979B3F000FED23C /* Build configuration list for PBXNativeTarget "idevicedebuglauncher" */;
@@ -380,6 +454,10 @@
 					126918D4297ED8540031424C = {
 						CreatedOnToolsVersion = 14.2;
 					};
+					12724BF12988F8F60069900B = {
+						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
+					};
 					12F467A62979B3EF00FED23C = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -408,11 +486,21 @@
 				12F467A62979B3EF00FED23C /* idevicedebuglauncher */,
 				12F467BC2979B4B100FED23C /* daemon */,
 				126918D4297ED8540031424C /* installer */,
+				12724BF12988F8F60069900B /* sampleapp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		12724BF02988F8F60069900B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12724BFC2988F8F70069900B /* Preview Assets.xcassets in Resources */,
+				12724BF92988F8F70069900B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		12F467A52979B3EF00FED23C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -451,6 +539,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		12724BEE2988F8F60069900B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12724BF72988F8F60069900B /* content.swift in Sources */,
+				12724BF52988F8F60069900B /* app.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		12F467A32979B3EF00FED23C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -531,6 +628,82 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeroenwk.idevicedebuglauncher.installer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		12724BFD2988F8F70069900B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"sampleapp/Preview Content\"";
+				DEVELOPMENT_TEAM = 7K8DK3VS42;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = sampleapp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SampleApp;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeroenwk.sampleapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		12724BFE2988F8F70069900B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"sampleapp/Preview Content\"";
+				DEVELOPMENT_TEAM = 7K8DK3VS42;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = sampleapp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SampleApp;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeroenwk.sampleapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -786,6 +959,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		12724BFF2988F8F70069900B /* Build configuration list for PBXNativeTarget "sampleapp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12724BFD2988F8F70069900B /* Debug */,
+				12724BFE2988F8F70069900B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		12F467A22979B3EF00FED23C /* Build configuration list for PBXProject "idevicedebuglauncher" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -827,6 +1009,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		12100C4D29896148002D3A4E /* idevicedebuglauncherlib */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = idevicedebuglauncherlib;
+		};
 		12F467E42979B81900FED23C /* Swifter */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 12F467E02979B7B300FED23C /* XCRemoteSwiftPackageReference "swifter" */;

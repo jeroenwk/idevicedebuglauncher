@@ -52,6 +52,19 @@ class LibIMobileDevice {
         }
     }
     
+    func attachDebugger(to udid: String, for bundleId: String) -> ErrorCode {
+        
+        let args = ["", "-n", "--detach", "-u", udid , "run", bundleId]
+        // Create [UnsafeMutablePointer<Int8>]:
+        var cargs = args.map { strdup($0) }
+        // Call C function:
+        let result = start_server(Int32(args.count), &cargs)
+        // Free the duplicated strings:
+        for ptr in cargs { free(ptr) }
+        
+        return ErrorCode(code: Int(result))
+    }
+    
     func deviceInfo(for udid: String, with fields: [String]) -> DeviceInfo? {
         var extraInfo: [String: String] = [:]
         
@@ -86,19 +99,6 @@ class LibIMobileDevice {
         }
         logger.error("Unable to find device with MAC: \(mac)")
         return nil
-    }
-
-    func connectDebugger(udid: String, bundleId: String) -> Int {
-        let args = ["", "-n", "--detach", "-u", udid , "run", bundleId]
-
-        // Create [UnsafeMutablePointer<Int8>]:
-        var cargs = args.map { strdup($0) }
-        // Call C function:
-        let result = start_server(Int32(args.count), &cargs)
-        // Free the duplicated strings:
-        
-        for ptr in cargs { free(ptr) }
-        return Int(result)
     }
 
     func getDeviceList() -> [DeviceInfo] {

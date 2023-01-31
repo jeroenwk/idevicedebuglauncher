@@ -31,6 +31,10 @@ func executeCommand(_ command: Command, payloadString: String? = nil) -> Codable
             lib.pairingInfo.pin = pincode
         }
         return ErrorCode(code: 0)
+    case .ATTACH_DEBUGGER:
+        if let request = payload as? DebugRequest {
+            return lib.attachDebugger(to: request.udid, for: request.bundleId)
+        }
     }
     return serverState
 }

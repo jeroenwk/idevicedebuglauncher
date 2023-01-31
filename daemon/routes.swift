@@ -1,10 +1,6 @@
 import Foundation
 import Swifter
 
-struct ConnectDebuggerResponse: Codable {
-    var error: Int
-}
-
 func badRequest(_ err_msg: String) -> HttpResponse {
     logger.error("\(err_msg)")
     return .badRequest(.text(err_msg))
@@ -22,9 +18,8 @@ func listDevices() -> ((HttpRequest) -> HttpResponse) {
     }
 }
 
-func connectDebugger() -> ((HttpRequest) -> HttpResponse) {
+func attachDebugger() -> ((HttpRequest) -> HttpResponse) {
     return { request in
-        var r = ConnectDebuggerResponse(error: -1)
         let queryParams = request.queryParams
         
         guard var ipAddress = request.address else {
@@ -51,13 +46,12 @@ func connectDebugger() -> ((HttpRequest) -> HttpResponse) {
         }
         
         logger.info("Starting debugger on \(udid) \(bundleId) ...")
-        let error = lib.connectDebugger(udid: udid, bundleId: bundleId)
-        if error == 0 {
+        let error = lib.attachDebugger(to: udid, for: bundleId)
+        if error.code == 0 {
             logger.info("Debugger has been launched in background")
         }
-        r.error = error
         
-        guard let json = json(r) else {
+        guard let json = json(error) else {
             return badRequest("Invalid response from debugger!")
         }
         

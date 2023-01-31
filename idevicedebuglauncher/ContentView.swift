@@ -9,12 +9,24 @@ struct ContentView: View {
     @State private var installRequested = false
     @State private var devices: [DeviceInfo] = []
     @State private var port = ""
+    @State private var bundleId = ""
     @State private var isPairing = false
-    @State private var pairingStatus = "unknown"
+    @State private var pairingStatus: String?
     @ObservedObject private var code = OTPModel()
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
+    func attachDebugger(udid: String) {
+        if bundleId != "" { //TODO: be more restrictive
+            let payload = DebugRequest(udid: udid, bundleId: bundleId)
+            Commands.send(.ATTACH_DEBUGGER, payload: payload) { response in
+                if let error = (response as? ErrorCode)?.error {
+                    logger.error("\(error)")
+                }
+            }
+        }
+    }
+    
     func getServiceState() {
         self.serviceState = Commands.status()
         updateServiceState()
@@ -36,6 +48,9 @@ struct ContentView: View {
     
     func setPinCode(_ code: String) {
         Commands.send(.SET_PIN, payload: code) { response in
+            if let error = (response as? ErrorCode)?.error {
+                logger.error("\(error)")
+            }
         }
     }
     
@@ -118,7 +133,7 @@ struct ContentView: View {
                     }
                 }
                 
-                if pairingStatus != "unknown" {
+                if let pairingStatus {
                     Text(pairingStatus)
                 }
                 
@@ -143,6 +158,12 @@ struct ContentView: View {
                         Text("Pair Apple TV")
                             .padding(20)
                     }
+                }
+
+                
+                HStack {
+                    Text("Bundle Identifier to debug:")
+                    TextField("com.developer.app", text: $bundleId)
                 }
                 
                 if isPairing {
@@ -173,10 +194,18 @@ struct ContentView: View {
                                 Label(model, systemImage: model.lowercased())
                             }
                         }
-                        TableColumn("Type") { device in
+                        TableColumn("Connection") { device in
                             if let deviceType = device.deviceType {
                                 Label(deviceType.description, systemImage: deviceType.icon)
                             }
+                        }
+                        TableColumn("Debug") { device in
+                            Button {
+                                attachDebugger(udid: device.deviceId)
+                            } label: {
+                                Image(systemName: "play.circle")
+                                .foregroundColor(.accentColor)
+                        }
                         }
                     }
                 }
