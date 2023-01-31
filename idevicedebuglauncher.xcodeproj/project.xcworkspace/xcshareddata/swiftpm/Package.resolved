@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "idevicedebuglauncherlib",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jeroenwk/idevicedebuglauncherlib",
+      "state" : {
+        "branch" : "main",
+        "revision" : "23abe82aad7926205b2923218574a856e5247f57"
+      }
+    },
+    {
       "identity" : "swifter",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/httpswift/swifter",

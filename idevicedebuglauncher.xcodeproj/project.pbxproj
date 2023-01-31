@@ -46,6 +46,7 @@
 		12E5BDD7297EF171009B5BE2 /* libssl.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF9A297C30AC002D960D /* libssl.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		12E5BDD8297EF172009B5BE2 /* libusbmuxd-2.0.6.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1290BF98297C30AC002D960D /* libusbmuxd-2.0.6.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		12E5BDDB297F0227009B5BE2 /* com.jeroenwk.idevicedebuglauncher.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12F467CE2979B67800FED23C /* com.jeroenwk.idevicedebuglauncher.plist */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		12EC4A2F29896A800039820A /* idevicedebuglauncherlib in Frameworks */ = {isa = PBXBuildFile; productRef = 12EC4A2E29896A800039820A /* idevicedebuglauncherlib */; };
 		12F09E272982D8E50024F11D /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F09E262982D8E50024F11D /* OTPView.swift */; };
 		12F467AB2979B3EF00FED23C /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F467AA2979B3EF00FED23C /* Main.swift */; };
 		12F467AD2979B3EF00FED23C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F467AC2979B3EF00FED23C /* ContentView.swift */; };
@@ -194,6 +195,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12EC4A2F29896A800039820A /* idevicedebuglauncherlib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +391,7 @@
 			);
 			name = sampleapp;
 			packageProductDependencies = (
+				12EC4A2E29896A800039820A /* idevicedebuglauncherlib */,
 			);
 			productName = sampleapp;
 			productReference = 12724BF22988F8F60069900B /* sampleapp.app */;
@@ -473,6 +476,7 @@
 			mainGroup = 12F4679E2979B3EF00FED23C;
 			packageReferences = (
 				12F467E02979B7B300FED23C /* XCRemoteSwiftPackageReference "swifter" */,
+				12EC4A2D29896A130039820A /* XCRemoteSwiftPackageReference "idevicedebuglauncherlib" */,
 			);
 			productRefGroup = 12F467A82979B3EF00FED23C /* Products */;
 			projectDirPath = "";
@@ -993,6 +997,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		12EC4A2D29896A130039820A /* XCRemoteSwiftPackageReference "idevicedebuglauncherlib" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jeroenwk/idevicedebuglauncherlib";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		12F467E02979B7B300FED23C /* XCRemoteSwiftPackageReference "swifter" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/httpswift/swifter";
@@ -1004,6 +1016,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		12EC4A2E29896A800039820A /* idevicedebuglauncherlib */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12EC4A2D29896A130039820A /* XCRemoteSwiftPackageReference "idevicedebuglauncherlib" */;
+			productName = idevicedebuglauncherlib;
+		};
 		12F467E42979B81900FED23C /* Swifter */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 12F467E02979B7B300FED23C /* XCRemoteSwiftPackageReference "swifter" */;

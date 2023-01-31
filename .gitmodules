@@ -13,3 +13,6 @@
 [submodule "externals/libusbmuxd"]
 	path = externals/libusbmuxd
 	url = https://github.com/libimobiledevice/libusbmuxd.git
+[submodule "idevicedebuglauncherlib"]
+	path = idevicedebuglauncherlib
+	url = https://github.com/jeroenwk/idevicedebuglauncherlib.git
