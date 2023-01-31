@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1205D3522981151100BF36D0 /* compile in Resources */ = {isa = PBXBuildFile; fileRef = 1205D3512981151100BF36D0 /* compile */; };
-		12100C4E29896148002D3A4E /* idevicedebuglauncherlib in Frameworks */ = {isa = PBXBuildFile; productRef = 12100C4D29896148002D3A4E /* idevicedebuglauncherlib */; };
 		1224722B2981A0CA00A6FD9A /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1224722A2981A0CA00A6FD9A /* json.swift */; };
 		1224722C2981A0CA00A6FD9A /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1224722A2981A0CA00A6FD9A /* json.swift */; };
 		1264761E297FD41A0015A50A /* libcrypto.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1290BF95297C30AC002D960D /* libcrypto.3.dylib */; };
@@ -139,7 +138,6 @@
 
 /* Begin PBXFileReference section */
 		1205D3512981151100BF36D0 /* compile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = compile; sourceTree = "<group>"; };
-		12100C4229892BF9002D3A4E /* idevicedebuglauncherlib */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = idevicedebuglauncherlib; sourceTree = "<group>"; };
 		12247228298159CD00A6FD9A /* install */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = install; sourceTree = "<group>"; };
 		12247229298159FC00A6FD9A /* run */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = run; sourceTree = "<group>"; };
 		1224722A2981A0CA00A6FD9A /* json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
@@ -196,7 +194,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12100C4E29896148002D3A4E /* idevicedebuglauncherlib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +281,6 @@
 				12F467BE2979B4B100FED23C /* daemon */,
 				126918D6297ED8540031424C /* installer */,
 				12724BF32988F8F60069900B /* sampleapp */,
-				12100C4229892BF9002D3A4E /* idevicedebuglauncherlib */,
 				12F467A82979B3EF00FED23C /* Products */,
 				12F467E32979B81900FED23C /* Frameworks */,
 			);
@@ -393,7 +389,6 @@
 			);
 			name = sampleapp;
 			packageProductDependencies = (
-				12100C4D29896148002D3A4E /* idevicedebuglauncherlib */,
 			);
 			productName = sampleapp;
 			productReference = 12724BF22988F8F60069900B /* sampleapp.app */;
@@ -1009,10 +1004,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		12100C4D29896148002D3A4E /* idevicedebuglauncherlib */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = idevicedebuglauncherlib;
-		};
 		12F467E42979B81900FED23C /* Swifter */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 12F467E02979B7B300FED23C /* XCRemoteSwiftPackageReference "swifter" */;
