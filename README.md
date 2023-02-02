@@ -1,14 +1,28 @@
 # idevicedebuglauncher
 **idevicedebuglauncher** is a web service on MacOS that can be used to attach a debugger to a remote application running on an iOS/tvOS device.
-This can be used to activate JIT on emulators running on the Apple TV (Provenance, Dolphinios, ...)
-It uses this library: https://github.com/libimobiledevice/libimobiledevice
+
+This can be used to activate JIT for emulators running on iOS / tvOS ([Provenance](https://provenance-emu.com), [Dolphinios](https://dolphinios.oatmealdome.me), ...).
+
+> **_NOTE:_**   the same functionality is embedded inside the [AltServer](https://altstore.io) so use that instead you have installed your application with AltStore and you just want to enable JIT
+
+![](/doc/app.png) 
+
+Like AltServer, idevicedebuglauncher uses the [libimobiledevice](https://github.com/libimobiledevice/libimobiledevice) library to communicate with the devices.
+
+The web service is exposed as Bonjour daemon so that a client can find and ask the service to attach a debugger so that JIT can be enabled.
+
+	// swift code 
+	import idevicedebuglauncherlib
+		 
+	if await idevicedebuglauncherlib().findAndConnect() {
+	    print("i'm being debugged")
+	}
+
 
 ## Quick install
     $ git clone https://github.com/jeroenwk/idevicedebuglauncher.git
     $ cd idevicedebuglauncher
     $ ./compile && ./install && ./run 
-
-![](/doc/app.png) 
 
 ## Run idevicedebuglauncher
 - activate the 'Install as system service' switch
