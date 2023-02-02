@@ -3,7 +3,7 @@
 
 This can be used to activate JIT for emulators running on iOS / tvOS ([Provenance](https://provenance-emu.com), [Dolphinios](https://dolphinios.oatmealdome.me), ...).
 
-> **_NOTE:_**   the same functionality is embedded inside the [AltServer](https://altstore.io) so use that instead you have installed your application with AltStore and you just want to enable JIT
+> **_NOTE:_**   the same functionality is exposed by [AltServer](https://altstore.io) so use that instead you have installed your application with AltStore and you just want to enable JIT.
 
 ![](/doc/app-20230202.png) 
 
@@ -26,13 +26,15 @@ The web service is exposed as Bonjour daemon so that a client can find and ask t
 
 ## Run idevicedebuglauncher
 - activate the 'Install as system service' switch
-- allow to idevicedebuglauncher in the background within the login items preference (only the first time)
-- once activate the list of devices is refreshed
-- browse to http://localhost:8383/idevice_id by clicking on the link and check for the devices found
-- there is a button to pair the AppleTV
-- fill in a bundleId to specify the app to be debugged
-- click on the blue play icon next to each device to start debugging the app
+- allow idevicedebuglauncher to run in the background (one time only inside system preferences)
+- once activated, the list of devices is refreshed
+- optionally you can pair an Apple TV
 - closing the app will leave the background process running as system daemon
+
+### Use gui to attach debugger to a remote app
+- fill in the bundleId to specify the app
+- click the blue play icon next to the device to attach a debugger to the app
+
 
 ---
 
@@ -52,16 +54,12 @@ You can just drag and drop or copy the application to the applications folder:
 
     $ cp -r ./build/Build/Products/Release/idevicedebuglauncher.app /Applications/
 		 
-Or: use build and use the installer package:
+Or: build and use the installer package:
 
     $ xcodebuild clean -scheme installer 
     $ xcodebuild -scheme installer -configuration Release -derivedDataPath ./build
     $ open ./build/Build/Products/Release/
 And double click 'idevicedebuglauncher.pkg'
-
-## Test with curl
-    $ curl http://localhost:8383/idevice_id -w "\n\n\n"
-    $ curl http://localhost:8383/idevicedebug\?bundleId=com.jeroenwk.provenance -w "\n\n\n"
 
 ---
 
