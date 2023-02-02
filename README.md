@@ -5,7 +5,7 @@ This can be used to activate JIT for emulators running on iOS / tvOS ([Provenanc
 
 > **_NOTE:_**   the same functionality is embedded inside the [AltServer](https://altstore.io) so use that instead you have installed your application with AltStore and you just want to enable JIT
 
-![](/doc/app.png) 
+![](/doc/app-20230202.png) 
 
 Like AltServer, idevicedebuglauncher uses the [libimobiledevice](https://github.com/libimobiledevice/libimobiledevice) library to communicate with the devices.
 
